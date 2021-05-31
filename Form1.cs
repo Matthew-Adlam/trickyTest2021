@@ -27,6 +27,8 @@ namespace trickyTest2021
         public bool medium = false;
         public bool hard = false;
 
+        public string username = "";
+
         public int score = 0;
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace trickyTest2021
         private void exitBtn_Click(object sender, EventArgs e)
         {
             // confirms exit, if yes is pressed closes the form
-            string question = "Do you want to exit this program?";
+            string question = "Do you want to exit this game?";
             string title = "Exit Program";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(question, title, buttons);
@@ -90,6 +92,7 @@ namespace trickyTest2021
             mediumBtn.Visible = false;
             hardBtn.Visible = false;
             backBtn.Visible = false;
+            usernameInput.Visible = false;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
@@ -132,19 +135,22 @@ namespace trickyTest2021
             easyBtn.Visible = false;
             mediumBtn.Visible = false;
             hardBtn.Visible = false;
+            usernameInput.Visible = true;
+            homeLbl.Text = "What is your username?";
         }
 
         private void easyBtn_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Difficulty set to Easy");
             difficultyBtnPressed();
             easy = true;
             medium = false;
             hard = false;
-            MessageBox.Show("Difficulty")
         }
 
         private void mediumBtn_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Difficulty set to Medium");
             difficultyBtnPressed();
             easy = false;
             medium = true;
@@ -153,10 +159,31 @@ namespace trickyTest2021
 
         private void hardBtn_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Difficulty set to Hard");
             difficultyBtnPressed();
             easy = false;
             medium = false;
             hard = true;
+        }
+
+        private void usernameInput_TextChanged(object sender, EventArgs e)
+        {
+            // sets string text to the bet text box
+            string text = usernameInput.Text;
+            // checks for null
+            if (text.Trim() == "") return;
+            for (int i = 0; i < text.Length; i++)
+            {
+                // if not a number, not let it through
+                if (!char.IsLetter(text[i]))
+                {
+                    MessageBox.Show("Please enter a valid username, one with only letters");
+                    usernameInput.Text = "";
+                    return;
+                }
+
+            }
+            username = usernameInput.Text;
         }
     }
 }

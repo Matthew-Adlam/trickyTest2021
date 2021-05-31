@@ -39,12 +39,14 @@ namespace trickyTest2021
             this.instructBtn = new System.Windows.Forms.Button();
             this.highScoresBtn = new System.Windows.Forms.Button();
             this.startBtn = new System.Windows.Forms.Button();
+            this.usernameInput = new System.Windows.Forms.TextBox();
             this.panelGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.usernameInput);
             this.panelGame.Controls.Add(this.backBtn);
             this.panelGame.Controls.Add(this.hardBtn);
             this.panelGame.Controls.Add(this.mediumBtn);
@@ -119,6 +121,7 @@ namespace trickyTest2021
             this.homeLbl.Size = new System.Drawing.Size(324, 69);
             this.homeLbl.TabIndex = 4;
             this.homeLbl.Text = "Tricky Test";
+            this.homeLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // exitBtn
             // 
@@ -166,6 +169,16 @@ namespace trickyTest2021
             this.startBtn.UseVisualStyleBackColor = false;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
+            // usernameInput
+            // 
+            this.usernameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameInput.Location = new System.Drawing.Point(425, 265);
+            this.usernameInput.Name = "usernameInput";
+            this.usernameInput.Size = new System.Drawing.Size(351, 56);
+            this.usernameInput.TabIndex = 9;
+            this.usernameInput.Visible = false;
+            this.usernameInput.TextChanged += new System.EventHandler(this.usernameInput_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -193,6 +206,7 @@ namespace trickyTest2021
         private System.Windows.Forms.Button hardBtn;
         private System.Windows.Forms.Button mediumBtn;
         private System.Windows.Forms.Button easyBtn;
+        private System.Windows.Forms.TextBox usernameInput;
     }
 }
 
