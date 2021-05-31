@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace trickyTest2021
 {
@@ -19,7 +20,14 @@ namespace trickyTest2021
 
         // variables decleration
 
-        public bool inGame = false;
+        // home screen animation
+        public bool animation = true;
+        public bool difficultyScreen = false;
+        public bool easy = true;
+        public bool medium = false;
+        public bool hard = false;
+
+        public int score = 0;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -35,7 +43,7 @@ namespace trickyTest2021
         /// </summary>
         private void panelGame_MouseMove(object sender, MouseEventArgs e)
         {
-            if(inGame == false)
+            if(animation == true)
             {
                 Random colorRnd = new Random();
                 Random sizeRnd = new Random();
@@ -71,13 +79,84 @@ namespace trickyTest2021
         /// </summary>
         public void homeScreen()
         {
-            inGame = false;
+            animation = true;
 
             exitBtn.Visible = true;
             instructBtn.Visible = true;
             startBtn.Visible = true;
             highScoresBtn.Visible = true;
             homeLbl.Visible = true;
+            easyBtn.Visible = false;
+            mediumBtn.Visible = false;
+            hardBtn.Visible = false;
+            backBtn.Visible = false;
+        }
+
+        private void startBtn_Click(object sender, EventArgs e)
+        {
+            animation = false;
+            difficultyScreen = true;
+            clearPanel();
+
+            exitBtn.Visible = false;
+            instructBtn.Visible = false;
+            startBtn.Visible = false;
+            highScoresBtn.Visible = false;
+            homeLbl.Text = "Select a difficulty:";
+            easyBtn.Visible = true;
+            mediumBtn.Visible = true;
+            hardBtn.Visible = true;
+            backBtn.Visible = true;
+        }
+
+        public void clearPanel()
+        {
+            panelGame.Refresh();
+        }
+
+        public void back()
+        {
+            if(difficultyScreen == true)
+            {
+                homeScreen();
+            }
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            back();
+        }
+
+        public void difficultyBtnPressed()
+        {
+            easyBtn.Visible = false;
+            mediumBtn.Visible = false;
+            hardBtn.Visible = false;
+        }
+
+        private void easyBtn_Click(object sender, EventArgs e)
+        {
+            difficultyBtnPressed();
+            easy = true;
+            medium = false;
+            hard = false;
+            MessageBox.Show("Difficulty")
+        }
+
+        private void mediumBtn_Click(object sender, EventArgs e)
+        {
+            difficultyBtnPressed();
+            easy = false;
+            medium = true;
+            hard = false;
+        }
+
+        private void hardBtn_Click(object sender, EventArgs e)
+        {
+            difficultyBtnPressed();
+            easy = false;
+            medium = false;
+            hard = true;
         }
     }
 }
