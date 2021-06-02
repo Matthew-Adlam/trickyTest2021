@@ -30,6 +30,9 @@ namespace trickyTest2021
         private void InitializeComponent()
         {
             this.panelGame = new System.Windows.Forms.Panel();
+            this.level1TextBox = new System.Windows.Forms.TextBox();
+            this.startGame = new System.Windows.Forms.Button();
+            this.usernameInput = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
             this.hardBtn = new System.Windows.Forms.Button();
             this.mediumBtn = new System.Windows.Forms.Button();
@@ -39,13 +42,14 @@ namespace trickyTest2021
             this.instructBtn = new System.Windows.Forms.Button();
             this.highScoresBtn = new System.Windows.Forms.Button();
             this.startBtn = new System.Windows.Forms.Button();
-            this.usernameInput = new System.Windows.Forms.TextBox();
             this.panelGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.level1TextBox);
+            this.panelGame.Controls.Add(this.startGame);
             this.panelGame.Controls.Add(this.usernameInput);
             this.panelGame.Controls.Add(this.backBtn);
             this.panelGame.Controls.Add(this.hardBtn);
@@ -62,6 +66,37 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // level1TextBox
+            // 
+            this.level1TextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.level1TextBox.Location = new System.Drawing.Point(425, 363);
+            this.level1TextBox.Name = "level1TextBox";
+            this.level1TextBox.Size = new System.Drawing.Size(351, 56);
+            this.level1TextBox.TabIndex = 11;
+            this.level1TextBox.Visible = false;
+            // 
+            // startGame
+            // 
+            this.startGame.BackColor = System.Drawing.Color.White;
+            this.startGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startGame.Location = new System.Drawing.Point(461, 387);
+            this.startGame.Name = "startGame";
+            this.startGame.Size = new System.Drawing.Size(269, 106);
+            this.startGame.TabIndex = 10;
+            this.startGame.Text = "Start Game";
+            this.startGame.UseVisualStyleBackColor = false;
+            this.startGame.Click += new System.EventHandler(this.startGame_Click);
+            // 
+            // usernameInput
+            // 
+            this.usernameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameInput.Location = new System.Drawing.Point(425, 265);
+            this.usernameInput.Name = "usernameInput";
+            this.usernameInput.Size = new System.Drawing.Size(351, 56);
+            this.usernameInput.TabIndex = 9;
+            this.usernameInput.Visible = false;
+            this.usernameInput.TextChanged += new System.EventHandler(this.usernameInput_TextChanged);
             // 
             // backBtn
             // 
@@ -169,16 +204,6 @@ namespace trickyTest2021
             this.startBtn.UseVisualStyleBackColor = false;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
-            // usernameInput
-            // 
-            this.usernameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameInput.Location = new System.Drawing.Point(425, 265);
-            this.usernameInput.Name = "usernameInput";
-            this.usernameInput.Size = new System.Drawing.Size(351, 56);
-            this.usernameInput.TabIndex = 9;
-            this.usernameInput.Visible = false;
-            this.usernameInput.TextChanged += new System.EventHandler(this.usernameInput_TextChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,6 +232,8 @@ namespace trickyTest2021
         private System.Windows.Forms.Button mediumBtn;
         private System.Windows.Forms.Button easyBtn;
         private System.Windows.Forms.TextBox usernameInput;
+        private System.Windows.Forms.Button startGame;
+        private System.Windows.Forms.TextBox level1TextBox;
     }
 }
 

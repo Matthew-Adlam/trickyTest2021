@@ -23,14 +23,20 @@ namespace trickyTest2021
         // home screen animation
         public bool animation = true;
         public bool difficultyScreen = false;
+        public bool nameScreen = false;
         public bool easy = true;
         public bool medium = false;
         public bool hard = false;
+        public bool lvl1Played = false;
+        public bool lvl2Played = false;
+        public bool lvl3Played = false;
 
         public string username = "";
 
         public int score = 0;
 
+        public Random randomLvl = new Random();
+        public int randomLvlInt = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             homeScreen();
@@ -82,6 +88,8 @@ namespace trickyTest2021
         public void homeScreen()
         {
             animation = true;
+            difficultyScreen = false;
+            nameScreen = false;
 
             exitBtn.Visible = true;
             instructBtn.Visible = true;
@@ -93,23 +101,13 @@ namespace trickyTest2021
             hardBtn.Visible = false;
             backBtn.Visible = false;
             usernameInput.Visible = false;
+            startGame.Visible = false;
+            level1TextBox.Visible = false;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            animation = false;
-            difficultyScreen = true;
-            clearPanel();
-
-            exitBtn.Visible = false;
-            instructBtn.Visible = false;
-            startBtn.Visible = false;
-            highScoresBtn.Visible = false;
-            homeLbl.Text = "Select a difficulty:";
-            easyBtn.Visible = true;
-            mediumBtn.Visible = true;
-            hardBtn.Visible = true;
-            backBtn.Visible = true;
+            goToDifficultyScreen();
         }
 
         public void clearPanel()
@@ -117,11 +115,35 @@ namespace trickyTest2021
             panelGame.Refresh();
         }
 
+        public void goToDifficultyScreen()
+        {
+            animation = false;
+            difficultyScreen = true;
+            nameScreen = false;
+            clearPanel();
+
+            exitBtn.Visible = false;
+            instructBtn.Visible = false;
+            startBtn.Visible = false;
+            highScoresBtn.Visible = false;
+            usernameInput.Visible = false;
+            startGame.Visible = false;
+            homeLbl.Text = "Select a difficulty:";
+            easyBtn.Visible = true;
+            mediumBtn.Visible = true;
+            hardBtn.Visible = true;
+            backBtn.Visible = true;
+        }
+
         public void back()
         {
             if(difficultyScreen == true)
             {
                 homeScreen();
+            }
+            else if(nameScreen == true)
+            {
+                goToDifficultyScreen();
             }
         }
 
@@ -136,6 +158,9 @@ namespace trickyTest2021
             mediumBtn.Visible = false;
             hardBtn.Visible = false;
             usernameInput.Visible = true;
+            startGame.Visible = true;
+            difficultyScreen = false;
+            nameScreen = true;
             homeLbl.Text = "What is your username?";
         }
 
@@ -185,5 +210,30 @@ namespace trickyTest2021
             }
             username = usernameInput.Text;
         }
+
+        private void startGame_Click(object sender, EventArgs e)
+        {
+            usernameInput.Visible = false;
+            startGame.Visible = false;
+            backBtn.Visible = false;
+            randomLvlInt = randomLvl.Next(1, 2);
+
+            if(randomLvlInt == 1 && lvl1Played == false)
+            {
+                level1();
+            }
+            else if(randomLvlInt == 2 && lvl2Played == false)
+            {
+
+            }
+            else if(randomLvlInt == 3 && lvl3Played == false)
+            {
+
+            }
+        }
+        public void level1()
+        {
+        }
+
     }
 }
