@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
@@ -27,6 +28,8 @@ namespace trickyTest2021
         public bool easy = true;
         public bool medium = false;
         public bool hard = false;
+        // the lvl(n) is for if that level is being played
+        public bool lvl1 = false;
         public bool lvl1Played = false;
         public bool lvl2Played = false;
         public bool lvl3Played = false;
@@ -64,6 +67,10 @@ namespace trickyTest2021
                 homeScreen.FillEllipse(br, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size);
                 homeScreen.DrawEllipse(pen1, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size);
 
+            }
+            else if(lvl1 == true)
+            {
+                // if mouse in contact with blue, lose life
             }
         }
         /// <summary>
@@ -213,6 +220,10 @@ namespace trickyTest2021
 
         private void startGame_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Move your mouse to the side of the screen, for the first level. You have been warned.");
+
+            Thread.Sleep(2000);
+
             usernameInput.Visible = false;
             startGame.Visible = false;
             backBtn.Visible = false;
@@ -221,6 +232,7 @@ namespace trickyTest2021
             if(randomLvlInt == 1 && lvl1Played == false)
             {
                 level1();
+                lvl1 = true;
             }
             else if(randomLvlInt == 2 && lvl2Played == false)
             {
@@ -233,6 +245,19 @@ namespace trickyTest2021
         }
         public void level1()
         {
+            homeLbl.Text = "Don't touch blue!";
+
+            Graphics homeScreen = panelGame.CreateGraphics();
+            Pen pen1 = new Pen(Color.Blue, 2);
+            Pen pen2 = new Pen(Color.Green, 2);
+            SolidBrush br = new SolidBrush(Color.Blue);
+            SolidBrush br2 = new SolidBrush(Color.Green);
+            homeScreen.FillRectangle(br2, 0, 0, 50, panelGame.Height);
+            homeScreen.DrawRectangle(pen2, 0, 0, 50, panelGame.Height);
+            homeScreen.FillRectangle(br2, panelGame.Width-50, 0, 50, panelGame.Height);
+            homeScreen.DrawRectangle(pen2, panelGame.Width-50, 0, 50, panelGame.Height);
+            homeScreen.FillRectangle(br, 50, 0, 900, panelGame.Height);
+            homeScreen.DrawRectangle(pen1, 50, 0, 900, panelGame.Height);
         }
 
     }

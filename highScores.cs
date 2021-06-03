@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace trickyTest2021
 {
-    class highScores
+    public partial class highScores
     {
     }
 }
