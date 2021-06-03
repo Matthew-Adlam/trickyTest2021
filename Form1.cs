@@ -37,6 +37,7 @@ namespace trickyTest2021
         public string username = "";
 
         public int score = 0;
+        public int lives = 5;
 
         public Random randomLvl = new Random();
         public int randomLvlInt = 0;
@@ -68,9 +69,16 @@ namespace trickyTest2021
                 homeScreen.DrawEllipse(pen1, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size);
 
             }
+            // if playing 'don't touch blue' level
             else if(lvl1 == true)
             {
-                // if mouse in contact with blue, lose life
+                // checks for mouse position - if it is in the same position as blue colour
+                int x = e.X;
+                int y = e.Y;
+                if (x > 50 || x < (panelGame.Width-50))
+                {
+                    checkLives();
+                }
             }
         }
         /// <summary>
@@ -110,6 +118,9 @@ namespace trickyTest2021
             usernameInput.Visible = false;
             startGame.Visible = false;
             level1TextBox.Visible = false;
+            livesLbl.Visible = false;
+            livesText.Visible = false;
+            goLbl.Visible = false;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
@@ -174,6 +185,7 @@ namespace trickyTest2021
         private void easyBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Difficulty set to Easy");
+            lives = 5;
             difficultyBtnPressed();
             easy = true;
             medium = false;
@@ -183,6 +195,7 @@ namespace trickyTest2021
         private void mediumBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Difficulty set to Medium");
+            lives = 3;
             difficultyBtnPressed();
             easy = false;
             medium = true;
@@ -192,6 +205,7 @@ namespace trickyTest2021
         private void hardBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Difficulty set to Hard");
+            lives = 1;
             difficultyBtnPressed();
             easy = false;
             medium = false;
@@ -220,13 +234,17 @@ namespace trickyTest2021
 
         private void startGame_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Move your mouse to the side of the screen, for the first level. You have been warned.");
+            MessageBox.Show("Move your mouse to the left side of the screen, for the first level. You have been warned. You have two seconds.");
+
 
             Thread.Sleep(2000);
 
             usernameInput.Visible = false;
             startGame.Visible = false;
             backBtn.Visible = false;
+            livesLbl.Visible = true;
+            livesText.Visible = true;
+            livesLbl.Text = lives.ToString();
             randomLvlInt = randomLvl.Next(1, 2);
 
             if(randomLvlInt == 1 && lvl1Played == false)
