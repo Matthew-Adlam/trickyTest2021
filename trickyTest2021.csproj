@@ -53,6 +53,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="highScores.cs" />
+    <Compile Include="levels.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="lives.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

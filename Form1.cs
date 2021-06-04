@@ -38,6 +38,7 @@ namespace trickyTest2021
 
         public int score = 0;
         public int lives = 5;
+        public int scoreTime = 1000;
 
         public Random randomLvl = new Random();
         public int randomLvlInt = 0;
@@ -75,7 +76,7 @@ namespace trickyTest2021
                 // checks for mouse position - if it is in the same position as blue colour
                 int x = e.X;
                 int y = e.Y;
-                if (x > 50 || x < (panelGame.Width-50))
+                if (x > 100 || x < (panelGame.Width-100))
                 {
                     checkLives();
                 }
@@ -120,7 +121,10 @@ namespace trickyTest2021
             level1TextBox.Visible = false;
             livesLbl.Visible = false;
             livesText.Visible = false;
+            scoreLbl.Visible = false;
+            scoreText.Visible = false;
             goLbl.Visible = false;
+            goBtn.Visible = false;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
@@ -239,11 +243,15 @@ namespace trickyTest2021
 
             Thread.Sleep(2000);
 
+            scoreTimer.Enabled = true;
+
             usernameInput.Visible = false;
             startGame.Visible = false;
             backBtn.Visible = false;
             livesLbl.Visible = true;
             livesText.Visible = true;
+            scoreLbl.Visible = true;
+            scoreText.Visible = true;
             livesLbl.Text = lives.ToString();
             randomLvlInt = randomLvl.Next(1, 2);
 
@@ -251,6 +259,7 @@ namespace trickyTest2021
             {
                 level1();
                 lvl1 = true;
+                
             }
             else if(randomLvlInt == 2 && lvl2Played == false)
             {
@@ -264,19 +273,42 @@ namespace trickyTest2021
         public void level1()
         {
             homeLbl.Text = "Don't touch blue!";
+            goBtn.Visible = true;
 
             Graphics homeScreen = panelGame.CreateGraphics();
             Pen pen1 = new Pen(Color.Blue, 2);
             Pen pen2 = new Pen(Color.Green, 2);
             SolidBrush br = new SolidBrush(Color.Blue);
             SolidBrush br2 = new SolidBrush(Color.Green);
-            homeScreen.FillRectangle(br2, 0, 0, 50, panelGame.Height);
-            homeScreen.DrawRectangle(pen2, 0, 0, 50, panelGame.Height);
-            homeScreen.FillRectangle(br2, panelGame.Width-50, 0, 50, panelGame.Height);
-            homeScreen.DrawRectangle(pen2, panelGame.Width-50, 0, 50, panelGame.Height);
-            homeScreen.FillRectangle(br, 50, 0, 900, panelGame.Height);
-            homeScreen.DrawRectangle(pen1, 50, 0, 900, panelGame.Height);
+            homeScreen.FillRectangle(br2, 0, 0, 100, panelGame.Height);
+            homeScreen.DrawRectangle(pen2, 0, 0, 100, panelGame.Height);
+            homeScreen.FillRectangle(br2, panelGame.Width-100, 0, 100, panelGame.Height);
+            homeScreen.DrawRectangle(pen2, panelGame.Width-100, 0, 100, panelGame.Height);
+            homeScreen.FillRectangle(br, 100, 0, 800, panelGame.Height);
+            homeScreen.DrawRectangle(pen1, 100, 0, 800, panelGame.Height);
         }
 
+        /// <summary>
+        /// the go button to complete level 1
+        /// </summary>
+        private void goBtn_Click(object sender, EventArgs e)
+        {
+            lvl1 = false;
+            endLevel();
+        }
+
+        private void scoreTimer_Tick(object sender, EventArgs e)
+        {
+            scoreTime--;
+        }
+
+        public void endLevel()
+        {
+            goBtn.Enabled = false;
+            scoreTimer.Enabled = false;
+            score += scoreTime;
+            scoreLbl.Text = score.ToString();
+            scoreTime = 1000;
+        }
     }
 }

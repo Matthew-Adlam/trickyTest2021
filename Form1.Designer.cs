@@ -29,6 +29,7 @@ namespace trickyTest2021
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
             this.level1TextBox = new System.Windows.Forms.TextBox();
             this.startGame = new System.Windows.Forms.Button();
@@ -45,12 +46,19 @@ namespace trickyTest2021
             this.livesText = new System.Windows.Forms.Label();
             this.livesLbl = new System.Windows.Forms.Label();
             this.goLbl = new System.Windows.Forms.Label();
+            this.goBtn = new System.Windows.Forms.Button();
+            this.scoreTimer = new System.Windows.Forms.Timer(this.components);
+            this.scoreText = new System.Windows.Forms.Label();
+            this.scoreLbl = new System.Windows.Forms.Label();
             this.panelGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.scoreLbl);
+            this.panelGame.Controls.Add(this.scoreText);
+            this.panelGame.Controls.Add(this.goBtn);
             this.panelGame.Controls.Add(this.goLbl);
             this.panelGame.Controls.Add(this.livesLbl);
             this.panelGame.Controls.Add(this.livesText);
@@ -215,7 +223,7 @@ namespace trickyTest2021
             this.livesText.AutoSize = true;
             this.livesText.BackColor = System.Drawing.Color.Transparent;
             this.livesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesText.Location = new System.Drawing.Point(534, 642);
+            this.livesText.Location = new System.Drawing.Point(745, 642);
             this.livesText.Name = "livesText";
             this.livesText.Size = new System.Drawing.Size(93, 36);
             this.livesText.TabIndex = 12;
@@ -226,7 +234,7 @@ namespace trickyTest2021
             this.livesLbl.AutoSize = true;
             this.livesLbl.BackColor = System.Drawing.Color.Transparent;
             this.livesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesLbl.Location = new System.Drawing.Point(637, 642);
+            this.livesLbl.Location = new System.Drawing.Point(870, 642);
             this.livesLbl.Name = "livesLbl";
             this.livesLbl.Size = new System.Drawing.Size(32, 36);
             this.livesLbl.TabIndex = 13;
@@ -242,6 +250,45 @@ namespace trickyTest2021
             this.goLbl.Size = new System.Drawing.Size(71, 39);
             this.goLbl.TabIndex = 14;
             this.goLbl.Text = "Go!";
+            // 
+            // goBtn
+            // 
+            this.goBtn.BackColor = System.Drawing.Color.Yellow;
+            this.goBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBtn.Location = new System.Drawing.Point(1232, 298);
+            this.goBtn.Name = "goBtn";
+            this.goBtn.Size = new System.Drawing.Size(100, 100);
+            this.goBtn.TabIndex = 15;
+            this.goBtn.Text = "Go!";
+            this.goBtn.UseVisualStyleBackColor = false;
+            this.goBtn.Click += new System.EventHandler(this.goBtn_Click);
+            // 
+            // scoreTimer
+            // 
+            this.scoreTimer.Interval = 12;
+            this.scoreTimer.Tick += new System.EventHandler(this.scoreTimer_Tick);
+            // 
+            // scoreText
+            // 
+            this.scoreText.AutoSize = true;
+            this.scoreText.BackColor = System.Drawing.Color.Transparent;
+            this.scoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreText.Location = new System.Drawing.Point(368, 642);
+            this.scoreText.Name = "scoreText";
+            this.scoreText.Size = new System.Drawing.Size(101, 36);
+            this.scoreText.TabIndex = 16;
+            this.scoreText.Text = "Score:";
+            // 
+            // scoreLbl
+            // 
+            this.scoreLbl.AutoSize = true;
+            this.scoreLbl.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLbl.Location = new System.Drawing.Point(502, 642);
+            this.scoreLbl.Name = "scoreLbl";
+            this.scoreLbl.Size = new System.Drawing.Size(32, 36);
+            this.scoreLbl.TabIndex = 17;
+            this.scoreLbl.Text = "0";
             // 
             // Form1
             // 
@@ -276,6 +323,10 @@ namespace trickyTest2021
         private System.Windows.Forms.Label livesLbl;
         private System.Windows.Forms.Label livesText;
         private System.Windows.Forms.Label goLbl;
+        private System.Windows.Forms.Button goBtn;
+        private System.Windows.Forms.Timer scoreTimer;
+        private System.Windows.Forms.Label scoreLbl;
+        private System.Windows.Forms.Label scoreText;
     }
 }
 
