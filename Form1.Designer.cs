@@ -31,6 +31,12 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.scoreLbl = new System.Windows.Forms.Label();
+            this.scoreText = new System.Windows.Forms.Label();
+            this.goBtn = new System.Windows.Forms.Button();
+            this.levelLbl = new System.Windows.Forms.Label();
+            this.livesLbl = new System.Windows.Forms.Label();
+            this.livesText = new System.Windows.Forms.Label();
             this.level1TextBox = new System.Windows.Forms.TextBox();
             this.startGame = new System.Windows.Forms.Button();
             this.usernameInput = new System.Windows.Forms.TextBox();
@@ -43,14 +49,13 @@ namespace trickyTest2021
             this.instructBtn = new System.Windows.Forms.Button();
             this.highScoresBtn = new System.Windows.Forms.Button();
             this.startBtn = new System.Windows.Forms.Button();
-            this.livesText = new System.Windows.Forms.Label();
-            this.livesLbl = new System.Windows.Forms.Label();
-            this.goLbl = new System.Windows.Forms.Label();
-            this.goBtn = new System.Windows.Forms.Button();
             this.scoreTimer = new System.Windows.Forms.Timer(this.components);
-            this.scoreText = new System.Windows.Forms.Label();
-            this.scoreLbl = new System.Windows.Forms.Label();
+            this.pauseMenu = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGame.SuspendLayout();
+            this.pauseMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelGame
@@ -59,7 +64,7 @@ namespace trickyTest2021
             this.panelGame.Controls.Add(this.scoreLbl);
             this.panelGame.Controls.Add(this.scoreText);
             this.panelGame.Controls.Add(this.goBtn);
-            this.panelGame.Controls.Add(this.goLbl);
+            this.panelGame.Controls.Add(this.levelLbl);
             this.panelGame.Controls.Add(this.livesLbl);
             this.panelGame.Controls.Add(this.livesText);
             this.panelGame.Controls.Add(this.level1TextBox);
@@ -74,12 +79,80 @@ namespace trickyTest2021
             this.panelGame.Controls.Add(this.instructBtn);
             this.panelGame.Controls.Add(this.highScoresBtn);
             this.panelGame.Controls.Add(this.startBtn);
-            this.panelGame.Location = new System.Drawing.Point(0, 1);
+            this.panelGame.Location = new System.Drawing.Point(0, 31);
             this.panelGame.Name = "panelGame";
-            this.panelGame.Size = new System.Drawing.Size(1332, 703);
+            this.panelGame.Size = new System.Drawing.Size(1332, 708);
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // scoreLbl
+            // 
+            this.scoreLbl.AutoSize = true;
+            this.scoreLbl.BackColor = System.Drawing.Color.Transparent;
+            this.scoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLbl.Location = new System.Drawing.Point(502, 642);
+            this.scoreLbl.Name = "scoreLbl";
+            this.scoreLbl.Size = new System.Drawing.Size(32, 36);
+            this.scoreLbl.TabIndex = 17;
+            this.scoreLbl.Text = "0";
+            // 
+            // scoreText
+            // 
+            this.scoreText.AutoSize = true;
+            this.scoreText.BackColor = System.Drawing.Color.Transparent;
+            this.scoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreText.Location = new System.Drawing.Point(368, 642);
+            this.scoreText.Name = "scoreText";
+            this.scoreText.Size = new System.Drawing.Size(101, 36);
+            this.scoreText.TabIndex = 16;
+            this.scoreText.Text = "Score:";
+            // 
+            // goBtn
+            // 
+            this.goBtn.BackColor = System.Drawing.Color.Yellow;
+            this.goBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goBtn.Location = new System.Drawing.Point(1232, 298);
+            this.goBtn.Name = "goBtn";
+            this.goBtn.Size = new System.Drawing.Size(100, 100);
+            this.goBtn.TabIndex = 15;
+            this.goBtn.Text = "Go!";
+            this.goBtn.UseVisualStyleBackColor = false;
+            this.goBtn.Click += new System.EventHandler(this.goBtn_Click);
+            // 
+            // levelLbl
+            // 
+            this.levelLbl.AutoSize = true;
+            this.levelLbl.BackColor = System.Drawing.Color.Transparent;
+            this.levelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.levelLbl.Location = new System.Drawing.Point(402, 222);
+            this.levelLbl.Name = "levelLbl";
+            this.levelLbl.Size = new System.Drawing.Size(444, 135);
+            this.levelLbl.TabIndex = 14;
+            this.levelLbl.Text = "Level 1";
+            this.levelLbl.Visible = false;
+            // 
+            // livesLbl
+            // 
+            this.livesLbl.AutoSize = true;
+            this.livesLbl.BackColor = System.Drawing.Color.Transparent;
+            this.livesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.livesLbl.Location = new System.Drawing.Point(870, 642);
+            this.livesLbl.Name = "livesLbl";
+            this.livesLbl.Size = new System.Drawing.Size(32, 36);
+            this.livesLbl.TabIndex = 13;
+            this.livesLbl.Text = "0";
+            // 
+            // livesText
+            // 
+            this.livesText.AutoSize = true;
+            this.livesText.BackColor = System.Drawing.Color.Transparent;
+            this.livesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.livesText.Location = new System.Drawing.Point(745, 642);
+            this.livesText.Name = "livesText";
+            this.livesText.Size = new System.Drawing.Size(93, 36);
+            this.livesText.TabIndex = 12;
+            this.livesText.Text = "Lives:";
             // 
             // level1TextBox
             // 
@@ -218,90 +291,64 @@ namespace trickyTest2021
             this.startBtn.UseVisualStyleBackColor = false;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
-            // livesText
-            // 
-            this.livesText.AutoSize = true;
-            this.livesText.BackColor = System.Drawing.Color.Transparent;
-            this.livesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesText.Location = new System.Drawing.Point(745, 642);
-            this.livesText.Name = "livesText";
-            this.livesText.Size = new System.Drawing.Size(93, 36);
-            this.livesText.TabIndex = 12;
-            this.livesText.Text = "Lives:";
-            // 
-            // livesLbl
-            // 
-            this.livesLbl.AutoSize = true;
-            this.livesLbl.BackColor = System.Drawing.Color.Transparent;
-            this.livesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesLbl.Location = new System.Drawing.Point(870, 642);
-            this.livesLbl.Name = "livesLbl";
-            this.livesLbl.Size = new System.Drawing.Size(32, 36);
-            this.livesLbl.TabIndex = 13;
-            this.livesLbl.Text = "0";
-            // 
-            // goLbl
-            // 
-            this.goLbl.AutoSize = true;
-            this.goLbl.BackColor = System.Drawing.Color.Transparent;
-            this.goLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goLbl.Location = new System.Drawing.Point(546, 334);
-            this.goLbl.Name = "goLbl";
-            this.goLbl.Size = new System.Drawing.Size(71, 39);
-            this.goLbl.TabIndex = 14;
-            this.goLbl.Text = "Go!";
-            // 
-            // goBtn
-            // 
-            this.goBtn.BackColor = System.Drawing.Color.Yellow;
-            this.goBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goBtn.Location = new System.Drawing.Point(1232, 298);
-            this.goBtn.Name = "goBtn";
-            this.goBtn.Size = new System.Drawing.Size(100, 100);
-            this.goBtn.TabIndex = 15;
-            this.goBtn.Text = "Go!";
-            this.goBtn.UseVisualStyleBackColor = false;
-            this.goBtn.Click += new System.EventHandler(this.goBtn_Click);
-            // 
             // scoreTimer
             // 
             this.scoreTimer.Interval = 12;
             this.scoreTimer.Tick += new System.EventHandler(this.scoreTimer_Tick);
             // 
-            // scoreText
+            // pauseMenu
             // 
-            this.scoreText.AutoSize = true;
-            this.scoreText.BackColor = System.Drawing.Color.Transparent;
-            this.scoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreText.Location = new System.Drawing.Point(368, 642);
-            this.scoreText.Name = "scoreText";
-            this.scoreText.Size = new System.Drawing.Size(101, 36);
-            this.scoreText.TabIndex = 16;
-            this.scoreText.Text = "Score:";
+            this.pauseMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.pauseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.pauseMenu.Location = new System.Drawing.Point(0, 0);
+            this.pauseMenu.Name = "pauseMenu";
+            this.pauseMenu.Size = new System.Drawing.Size(1332, 28);
+            this.pauseMenu.TabIndex = 1;
+            this.pauseMenu.Text = "menuStrip1";
             // 
-            // scoreLbl
+            // menuToolStripMenuItem
             // 
-            this.scoreLbl.AutoSize = true;
-            this.scoreLbl.BackColor = System.Drawing.Color.Transparent;
-            this.scoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreLbl.Location = new System.Drawing.Point(502, 642);
-            this.scoreLbl.Name = "scoreLbl";
-            this.scoreLbl.Size = new System.Drawing.Size(32, 36);
-            this.scoreLbl.TabIndex = 17;
-            this.scoreLbl.Text = "0";
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pauseGameToolStripMenuItem,
+            this.exitGameToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // pauseGameToolStripMenuItem
+            // 
+            this.pauseGameToolStripMenuItem.Name = "pauseGameToolStripMenuItem";
+            this.pauseGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pauseGameToolStripMenuItem.Text = "Pause Game";
+            // 
+            // exitGameToolStripMenuItem
+            // 
+            this.exitGameToolStripMenuItem.Name = "exitGameToolStripMenuItem";
+            this.exitGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitGameToolStripMenuItem.Text = "Exit Game";
+            this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 703);
+            this.ClientSize = new System.Drawing.Size(1332, 738);
             this.Controls.Add(this.panelGame);
+            this.Controls.Add(this.pauseMenu);
+            this.MainMenuStrip = this.pauseMenu;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
+            this.pauseMenu.ResumeLayout(false);
+            this.pauseMenu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -322,11 +369,15 @@ namespace trickyTest2021
         private System.Windows.Forms.TextBox level1TextBox;
         private System.Windows.Forms.Label livesLbl;
         private System.Windows.Forms.Label livesText;
-        private System.Windows.Forms.Label goLbl;
+        private System.Windows.Forms.Label levelLbl;
         private System.Windows.Forms.Button goBtn;
         private System.Windows.Forms.Timer scoreTimer;
         private System.Windows.Forms.Label scoreLbl;
         private System.Windows.Forms.Label scoreText;
+        private System.Windows.Forms.MenuStrip pauseMenu;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pauseGameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitGameToolStripMenuItem;
     }
 }
 

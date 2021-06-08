@@ -35,7 +35,8 @@ namespace trickyTest2021
         public void endGameScreen()
         {
             // update high scores
-            // reset back to main page
+            // reset to home screen
+            homeScreen();
         }
     }
 }

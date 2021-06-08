@@ -123,8 +123,9 @@ namespace trickyTest2021
             livesText.Visible = false;
             scoreLbl.Visible = false;
             scoreText.Visible = false;
-            goLbl.Visible = false;
+            levelLbl.Visible = false;
             goBtn.Visible = false;
+            pauseMenu.Visible = false;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
@@ -238,37 +239,48 @@ namespace trickyTest2021
 
         private void startGame_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Move your mouse to the left side of the screen, for the first level. You have been warned. You have two seconds.");
-
-
-            Thread.Sleep(2000);
-
-            scoreTimer.Enabled = true;
-
-            usernameInput.Visible = false;
-            startGame.Visible = false;
-            backBtn.Visible = false;
-            livesLbl.Visible = true;
-            livesText.Visible = true;
-            scoreLbl.Visible = true;
-            scoreText.Visible = true;
-            livesLbl.Text = lives.ToString();
-            randomLvlInt = randomLvl.Next(1, 2);
-
-            if(randomLvlInt == 1 && lvl1Played == false)
+            if(usernameInput.Text != "")
             {
-                level1();
-                lvl1 = true;
-                
-            }
-            else if(randomLvlInt == 2 && lvl2Played == false)
-            {
+                usernameInput.Visible = false;
+                startGame.Visible = false;
+                levelLbl.Visible = true;
+                homeLbl.Visible = false;
+                backBtn.Visible = false;
+                MessageBox.Show("Move your mouse to the left side of the screen, for the first level. You have been warned. You have two seconds.");
 
-            }
-            else if(randomLvlInt == 3 && lvl3Played == false)
-            {
 
+                Thread.Sleep(2000);
+
+                scoreTimer.Enabled = true;
+                pauseMenu.Visible = true;
+                homeLbl.Visible = false;
+                livesLbl.Visible = true;
+                livesText.Visible = true;
+                scoreLbl.Visible = true;
+                scoreText.Visible = true;
+                livesLbl.Text = lives.ToString();
+                randomLvlInt = randomLvl.Next(1, 2);
+
+                if (randomLvlInt == 1 && lvl1Played == false)
+                {
+                    level1();
+                    lvl1 = true;
+
+                }
+                else if (randomLvlInt == 2 && lvl2Played == false)
+                {
+
+                }
+                else if (randomLvlInt == 3 && lvl3Played == false)
+                {
+
+                }
             }
+            else
+            {
+                MessageBox.Show("Please enter a username.");
+            }
+           
         }
         public void level1()
         {
@@ -300,6 +312,10 @@ namespace trickyTest2021
         private void scoreTimer_Tick(object sender, EventArgs e)
         {
             scoreTime--;
+            if(scoreTime <= 0)
+            {
+                scoreTime = 0;
+            }
         }
 
         public void endLevel()
@@ -309,6 +325,17 @@ namespace trickyTest2021
             score += scoreTime;
             scoreLbl.Text = score.ToString();
             scoreTime = 1000;
+        }
+
+        private void exitGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitGameToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            // are u sure prompt
+            homeScreen();
         }
     }
 }
