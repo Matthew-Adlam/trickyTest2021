@@ -126,6 +126,9 @@ namespace trickyTest2021
             levelLbl.Visible = false;
             goBtn.Visible = false;
             pauseMenu.Visible = false;
+
+            clearPanel();
+            homeLbl.Text = "Tricky Test";
         }
 
         private void startBtn_Click(object sender, EventArgs e)
@@ -327,15 +330,22 @@ namespace trickyTest2021
             scoreTime = 1000;
         }
 
-        private void exitGameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitGameToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            // are u sure prompt
-            homeScreen();
+            scoreTimer.Enabled = false;
+            // confirms exit, if yes is pressed closes the form
+            string question = "Do you want to exit this game?";
+            string title = "Exit Game";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(question, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                homeScreen();
+            }
+            else if(result == DialogResult.No)
+            {
+                scoreTimer.Enabled = true;
+            }
         }
     }
 }
