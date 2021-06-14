@@ -94,7 +94,7 @@ namespace trickyTest2021
             DialogResult result = MessageBox.Show(question, title, buttons);
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                Application.Exit();
             }
         }
 
@@ -126,6 +126,7 @@ namespace trickyTest2021
             levelLbl.Visible = false;
             goBtn.Visible = false;
             pauseMenu.Visible = false;
+            listBoxHighScores.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -346,6 +347,16 @@ namespace trickyTest2021
             {
                 scoreTimer.Enabled = true;
             }
+        }
+
+        private void instructBtn_Click(object sender, EventArgs e)
+        {
+            // instructions here
+        }
+
+        private void highScoresBtn_Click(object sender, EventArgs e)
+        {
+            displayHighScores();
         }
     }
 }
