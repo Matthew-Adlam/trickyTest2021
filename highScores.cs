@@ -11,39 +11,53 @@ namespace trickyTest2021
     public partial class Form1
     {
 
-        string names = "";
-        int scores = 0;
 
-        public void updateHighScores()
+        public void updateHighScores(int score, string username)
         {
 
-            displayHighScores();
-
             StreamWriter writer;
+            StreamReader reader;
 
             string binPath = Application.StartupPath + @"\easyScores.txt";
 
             List<string> highScores = new List<string>();
-           
-            var reader = new StreamReader(binPath);
+            //writer = File.OpenText(binPath);
+            string line = "";
+            string[] values;
+            string names = "";
+            int scores = 0;
+            int lowestScore = 0;
+            int counter = 0;
+
 
             if (easy == true)
             {
-                binPath = Application.StartupPath + @"\easyScores.txt";
+                writer = File.AppendText(binPath);
 
+                writer.WriteLine(username + "," + score.ToString());
+
+                writer.Close();
+                reader = File.OpenText(binPath);
+
+                binPath = Application.StartupPath + @"\easyScores.txt";
                 while (!reader.EndOfStream)
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-
+                    line = reader.ReadLine();
+                    values = line.Split(',');
                     names = values[0];
-                    scores = Int32.Parse(values[1]);
+                    scores = int.Parse(values[1]);
+
+                    if(score < lowestScore || counter == 0)
+                    {
+                        lowestScore = score;
+                    }
+                    counter++;
 
                     listBoxHighScores.Items.Add(names.PadRight(10) + scores);
-
-                    int lowestScore = scores(scores.Count - 1);
                 }
                 reader.Close();
+
+                displayHighScores();
             }
             else if(medium == true)
             {
@@ -57,7 +71,7 @@ namespace trickyTest2021
         public void displayHighScores()
         {
             clearPanel();
-            panelGame.Visible = false;
+            //panelGame.Visible = false;
             listBoxHighScores.Visible = true;
         }
 

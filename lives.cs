@@ -34,7 +34,7 @@ namespace trickyTest2021
 
         public void endGameScreen()
         {
-            updateHighScores();
+            updateHighScores(score, username);
             homeScreen();
         }
     }

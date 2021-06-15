@@ -31,6 +31,7 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.listBoxHighScores = new System.Windows.Forms.ListBox();
             this.scoreLbl = new System.Windows.Forms.Label();
             this.scoreText = new System.Windows.Forms.Label();
             this.goBtn = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@ namespace trickyTest2021
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBoxHighScores = new System.Windows.Forms.ListBox();
             this.panelGame.SuspendLayout();
             this.pauseMenu.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,17 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // listBoxHighScores
+            // 
+            this.listBoxHighScores.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.listBoxHighScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxHighScores.FormattingEnabled = true;
+            this.listBoxHighScores.ItemHeight = 25;
+            this.listBoxHighScores.Location = new System.Drawing.Point(866, 44);
+            this.listBoxHighScores.Name = "listBoxHighScores";
+            this.listBoxHighScores.Size = new System.Drawing.Size(485, 354);
+            this.listBoxHighScores.TabIndex = 18;
             // 
             // scoreLbl
             // 
@@ -335,16 +346,6 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
-            // 
-            // listBoxHighScores
-            // 
-            this.listBoxHighScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxHighScores.FormattingEnabled = true;
-            this.listBoxHighScores.ItemHeight = 25;
-            this.listBoxHighScores.Location = new System.Drawing.Point(310, 172);
-            this.listBoxHighScores.Name = "listBoxHighScores";
-            this.listBoxHighScores.Size = new System.Drawing.Size(485, 354);
-            this.listBoxHighScores.TabIndex = 18;
             // 
             // Form1
             // 

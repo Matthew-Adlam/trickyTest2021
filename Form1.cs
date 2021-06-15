@@ -356,7 +356,7 @@ namespace trickyTest2021
 
         private void highScoresBtn_Click(object sender, EventArgs e)
         {
-            displayHighScores();
+            updateHighScores(score, username);
         }
     }
 }
