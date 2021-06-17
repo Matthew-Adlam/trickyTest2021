@@ -20,7 +20,20 @@ namespace trickyTest2021
 
             string binPath = Application.StartupPath + @"\easyScores.txt";
 
-            List<string> highScores = new List<string>();
+            if (easy == true)
+            {
+                binPath = Application.StartupPath + @"\easyScores.txt";
+            }
+            else if (medium == true)
+            {
+                binPath = Application.StartupPath + @"\mediumScores.txt";
+            }
+            else if (hard == true)
+            {
+                binPath = Application.StartupPath + @"\hardScores.txt";
+            }
+
+            List<(string, int)> highScores = new List<(string, int)>();
             //writer = File.OpenText(binPath);
             string line = "";
             string[] values;
@@ -28,45 +41,41 @@ namespace trickyTest2021
             int scores = 0;
             int lowestScore = 0;
             int counter = 0;
+            writer = File.AppendText(binPath);
 
-
-            if (easy == true)
+            if (score != 0)
             {
-                writer = File.AppendText(binPath);
-
                 writer.WriteLine(username + "," + score.ToString());
+            }
+            writer.Close();
+            reader = File.OpenText(binPath);
 
-                writer.Close();
-                reader = File.OpenText(binPath);
+            while (!reader.EndOfStream)
+            {
+                line = reader.ReadLine();
+                values = line.Split(',');
+                names = values[0];
+                scores = int.Parse(values[1]);
+                highScores.Add((names, scores));
 
-                binPath = Application.StartupPath + @"\easyScores.txt";
-                while (!reader.EndOfStream)
+                if (score < lowestScore || counter == 0)
                 {
-                    line = reader.ReadLine();
-                    values = line.Split(',');
-                    names = values[0];
-                    scores = int.Parse(values[1]);
-
-                    if(score < lowestScore || counter == 0)
-                    {
-                        lowestScore = score;
-                    }
-                    counter++;
-
-                    listBoxHighScores.Items.Add(names.PadRight(10) + scores);
+                    lowestScore = score;
                 }
-                reader.Close();
+                counter++;
 
-                displayHighScores();
             }
-            else if(medium == true)
+            reader.Close();
+
+            highScores = highScores.OrderByDescending(x => x.Item2).Take(10).ToList();
+
+            foreach (var (name, score2) in highScores)
             {
-
+                listBoxHighScores.Items.Add(name.PadRight(10) + score2);
             }
-            else if(hard == true)
-            {
 
-            }
+            displayHighScores();
+
         }
         public void displayHighScores()
         {

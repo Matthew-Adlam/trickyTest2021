@@ -94,7 +94,7 @@ namespace trickyTest2021
             this.listBoxHighScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxHighScores.FormattingEnabled = true;
             this.listBoxHighScores.ItemHeight = 25;
-            this.listBoxHighScores.Location = new System.Drawing.Point(866, 44);
+            this.listBoxHighScores.Location = new System.Drawing.Point(675, 3);
             this.listBoxHighScores.Name = "listBoxHighScores";
             this.listBoxHighScores.Size = new System.Drawing.Size(485, 354);
             this.listBoxHighScores.TabIndex = 18;
