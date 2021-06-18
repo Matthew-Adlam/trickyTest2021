@@ -55,6 +55,9 @@ namespace trickyTest2021
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.easyHighScoreBtn = new System.Windows.Forms.Button();
+            this.mediumHighScoreBtn = new System.Windows.Forms.Button();
+            this.hardHighScoreBtn = new System.Windows.Forms.Button();
             this.panelGame.SuspendLayout();
             this.pauseMenu.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +65,9 @@ namespace trickyTest2021
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.hardHighScoreBtn);
+            this.panelGame.Controls.Add(this.mediumHighScoreBtn);
+            this.panelGame.Controls.Add(this.easyHighScoreBtn);
             this.panelGame.Controls.Add(this.listBoxHighScores);
             this.panelGame.Controls.Add(this.scoreLbl);
             this.panelGame.Controls.Add(this.scoreText);
@@ -90,11 +96,11 @@ namespace trickyTest2021
             // 
             // listBoxHighScores
             // 
-            this.listBoxHighScores.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.listBoxHighScores.BackColor = System.Drawing.Color.White;
             this.listBoxHighScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxHighScores.FormattingEnabled = true;
             this.listBoxHighScores.ItemHeight = 25;
-            this.listBoxHighScores.Location = new System.Drawing.Point(675, 3);
+            this.listBoxHighScores.Location = new System.Drawing.Point(374, 158);
             this.listBoxHighScores.Name = "listBoxHighScores";
             this.listBoxHighScores.Size = new System.Drawing.Size(485, 354);
             this.listBoxHighScores.TabIndex = 18;
@@ -347,6 +353,42 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
+            // easyHighScoreBtn
+            // 
+            this.easyHighScoreBtn.BackColor = System.Drawing.Color.Yellow;
+            this.easyHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.easyHighScoreBtn.Location = new System.Drawing.Point(76, 330);
+            this.easyHighScoreBtn.Name = "easyHighScoreBtn";
+            this.easyHighScoreBtn.Size = new System.Drawing.Size(269, 106);
+            this.easyHighScoreBtn.TabIndex = 19;
+            this.easyHighScoreBtn.Text = "Easy";
+            this.easyHighScoreBtn.UseVisualStyleBackColor = false;
+            this.easyHighScoreBtn.Click += new System.EventHandler(this.easyHighScoreBtn_Click);
+            // 
+            // mediumHighScoreBtn
+            // 
+            this.mediumHighScoreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.mediumHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediumHighScoreBtn.Location = new System.Drawing.Point(461, 330);
+            this.mediumHighScoreBtn.Name = "mediumHighScoreBtn";
+            this.mediumHighScoreBtn.Size = new System.Drawing.Size(269, 106);
+            this.mediumHighScoreBtn.TabIndex = 20;
+            this.mediumHighScoreBtn.Text = "Medium";
+            this.mediumHighScoreBtn.UseVisualStyleBackColor = false;
+            this.mediumHighScoreBtn.Click += new System.EventHandler(this.mediumHighScoreBtn_Click);
+            // 
+            // hardHighScoreBtn
+            // 
+            this.hardHighScoreBtn.BackColor = System.Drawing.Color.Red;
+            this.hardHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hardHighScoreBtn.Location = new System.Drawing.Point(876, 330);
+            this.hardHighScoreBtn.Name = "hardHighScoreBtn";
+            this.hardHighScoreBtn.Size = new System.Drawing.Size(269, 106);
+            this.hardHighScoreBtn.TabIndex = 21;
+            this.hardHighScoreBtn.Text = "Hard";
+            this.hardHighScoreBtn.UseVisualStyleBackColor = false;
+            this.hardHighScoreBtn.Click += new System.EventHandler(this.hardHighScoreBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -394,6 +436,9 @@ namespace trickyTest2021
         private System.Windows.Forms.ToolStripMenuItem pauseGameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitGameToolStripMenuItem;
         private System.Windows.Forms.ListBox listBoxHighScores;
+        private System.Windows.Forms.Button hardHighScoreBtn;
+        private System.Windows.Forms.Button mediumHighScoreBtn;
+        private System.Windows.Forms.Button easyHighScoreBtn;
     }
 }
 

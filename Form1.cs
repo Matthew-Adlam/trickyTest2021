@@ -127,6 +127,9 @@ namespace trickyTest2021
             goBtn.Visible = false;
             pauseMenu.Visible = false;
             listBoxHighScores.Visible = false;
+            easyHighScoreBtn.Visible = false;
+            mediumHighScoreBtn.Visible = false;
+            hardHighScoreBtn.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -356,6 +359,45 @@ namespace trickyTest2021
 
         private void highScoresBtn_Click(object sender, EventArgs e)
         {
+            easyHighScoreBtn.Visible = true;
+            mediumHighScoreBtn.Visible = true;
+            hardHighScoreBtn.Visible = true;
+            startBtn.Visible = false;
+            highScoresBtn.Visible = false;
+            instructBtn.Visible = false;
+            exitBtn.Visible = false;
+        }
+
+        private void easyHighScoreBtn_Click(object sender, EventArgs e)
+        {
+            easyHighScoreBtn.Visible = false;
+            mediumHighScoreBtn.Visible = false;
+            hardHighScoreBtn.Visible = false;
+            easy = true;
+            medium = false;
+            hard = false;
+            updateHighScores(score, username);
+        }
+
+        private void mediumHighScoreBtn_Click(object sender, EventArgs e)
+        {
+            easyHighScoreBtn.Visible = false;
+            mediumHighScoreBtn.Visible = false;
+            hardHighScoreBtn.Visible = false;
+            easy = false;
+            medium = true;
+            hard = false;
+            updateHighScores(score, username);
+        }
+
+        private void hardHighScoreBtn_Click(object sender, EventArgs e)
+        {
+            easyHighScoreBtn.Visible = false;
+            mediumHighScoreBtn.Visible = false;
+            hardHighScoreBtn.Visible = false;
+            easy = false;
+            medium = false;
+            hard = true;
             updateHighScores(score, username);
         }
     }

@@ -14,7 +14,7 @@ namespace trickyTest2021
 
         public void updateHighScores(int score, string username)
         {
-
+            homeLbl.Text = "High Scores";
             StreamWriter writer;
             StreamReader reader;
 
