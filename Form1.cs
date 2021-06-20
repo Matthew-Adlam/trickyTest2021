@@ -253,14 +253,14 @@ namespace trickyTest2021
                 levelLbl.Visible = true;
                 homeLbl.Visible = false;
                 backBtn.Visible = false;
-                MessageBox.Show("Move your mouse to the left side of the screen, for the first level. You have been warned. You have two seconds.");
+                MessageBox.Show("Move your mouse to the left side of the screen, NOT THE GAME SCREEN, for the first level. You have been warned. You have two seconds.");
 
 
                 Thread.Sleep(2000);
 
                 scoreTimer.Enabled = true;
                 pauseMenu.Visible = true;
-                homeLbl.Visible = false;
+                homeLbl.Visible = true;
                 livesLbl.Visible = true;
                 livesText.Visible = true;
                 scoreLbl.Visible = true;
