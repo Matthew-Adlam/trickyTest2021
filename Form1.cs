@@ -28,11 +28,8 @@ namespace trickyTest2021
         public bool easy = true;
         public bool medium = false;
         public bool hard = false;
-        // the lvl(n) is for if that level is being played
-        public bool lvl1 = false;
-        public bool lvl1Played = false;
-        public bool lvl2Played = false;
-        public bool lvl3Played = false;
+        // current level
+        public int level = 0;
 
         public string username = "";
 
@@ -71,7 +68,7 @@ namespace trickyTest2021
 
             }
             // if playing 'don't touch blue' level
-            else if(lvl1 == true)
+            else if(level == 1)
             {
                 // checks for mouse position - if it is in the same position as blue colour
                 int x = e.X;
@@ -248,13 +245,13 @@ namespace trickyTest2021
         {
             if(usernameInput.Text != "")
             {
+                level = 1;
                 usernameInput.Visible = false;
                 startGame.Visible = false;
                 levelLbl.Visible = true;
                 homeLbl.Visible = false;
                 backBtn.Visible = false;
                 MessageBox.Show("Move your mouse to the left side of the screen, NOT THE GAME SCREEN, for the first level. You have been warned. You have two seconds.");
-
 
                 Thread.Sleep(2000);
 
@@ -268,19 +265,9 @@ namespace trickyTest2021
                 livesLbl.Text = lives.ToString();
                 randomLvlInt = randomLvl.Next(1, 2);
 
-                if (randomLvlInt == 1 && lvl1Played == false)
+                if (level == 1)
                 {
                     level1();
-                    lvl1 = true;
-
-                }
-                else if (randomLvlInt == 2 && lvl2Played == false)
-                {
-
-                }
-                else if (randomLvlInt == 3 && lvl3Played == false)
-                {
-
                 }
             }
             else
@@ -291,6 +278,7 @@ namespace trickyTest2021
         }
         public void level1()
         {
+            level = 1;
             homeLbl.Text = "Don't touch blue!";
             goBtn.Visible = true;
 
@@ -312,7 +300,7 @@ namespace trickyTest2021
         /// </summary>
         private void goBtn_Click(object sender, EventArgs e)
         {
-            lvl1 = false;
+            level = 2;
             endLevel();
         }
 
@@ -332,6 +320,11 @@ namespace trickyTest2021
             score += scoreTime;
             scoreLbl.Text = score.ToString();
             scoreTime = 1000;
+
+            if(level == 2)
+            {
+                level2();
+            }
         }
 
         private void exitGameToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -399,6 +392,10 @@ namespace trickyTest2021
             medium = false;
             hard = true;
             updateHighScores(score, username);
+        }
+        public void level2()
+        {
+
         }
     }
 }

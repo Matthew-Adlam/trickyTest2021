@@ -19,11 +19,11 @@ namespace trickyTest2021
             lives--;
             livesLbl.Text = lives.ToString();
 
-            if(lives <= 0)
+            if (lives <= 0)
             {
                 endGameScreen();
             }
-            else if (lvl1 == true)
+            else if (level == 1)
             {
                 // reset for special conditions for level 1
                 MessageBox.Show("Move your mouse to the left side of the screen. You have been warned. You have two seconds.");
