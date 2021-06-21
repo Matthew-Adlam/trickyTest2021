@@ -31,6 +31,9 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.hardHighScoreBtn = new System.Windows.Forms.Button();
+            this.mediumHighScoreBtn = new System.Windows.Forms.Button();
+            this.easyHighScoreBtn = new System.Windows.Forms.Button();
             this.listBoxHighScores = new System.Windows.Forms.ListBox();
             this.scoreLbl = new System.Windows.Forms.Label();
             this.scoreText = new System.Windows.Forms.Label();
@@ -55,9 +58,6 @@ namespace trickyTest2021
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.easyHighScoreBtn = new System.Windows.Forms.Button();
-            this.mediumHighScoreBtn = new System.Windows.Forms.Button();
-            this.hardHighScoreBtn = new System.Windows.Forms.Button();
             this.panelGame.SuspendLayout();
             this.pauseMenu.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +93,42 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // hardHighScoreBtn
+            // 
+            this.hardHighScoreBtn.BackColor = System.Drawing.Color.Red;
+            this.hardHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hardHighScoreBtn.Location = new System.Drawing.Point(876, 330);
+            this.hardHighScoreBtn.Name = "hardHighScoreBtn";
+            this.hardHighScoreBtn.Size = new System.Drawing.Size(269, 106);
+            this.hardHighScoreBtn.TabIndex = 21;
+            this.hardHighScoreBtn.Text = "Hard";
+            this.hardHighScoreBtn.UseVisualStyleBackColor = false;
+            this.hardHighScoreBtn.Click += new System.EventHandler(this.hardHighScoreBtn_Click);
+            // 
+            // mediumHighScoreBtn
+            // 
+            this.mediumHighScoreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.mediumHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mediumHighScoreBtn.Location = new System.Drawing.Point(461, 330);
+            this.mediumHighScoreBtn.Name = "mediumHighScoreBtn";
+            this.mediumHighScoreBtn.Size = new System.Drawing.Size(269, 106);
+            this.mediumHighScoreBtn.TabIndex = 20;
+            this.mediumHighScoreBtn.Text = "Medium";
+            this.mediumHighScoreBtn.UseVisualStyleBackColor = false;
+            this.mediumHighScoreBtn.Click += new System.EventHandler(this.mediumHighScoreBtn_Click);
+            // 
+            // easyHighScoreBtn
+            // 
+            this.easyHighScoreBtn.BackColor = System.Drawing.Color.Yellow;
+            this.easyHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.easyHighScoreBtn.Location = new System.Drawing.Point(76, 330);
+            this.easyHighScoreBtn.Name = "easyHighScoreBtn";
+            this.easyHighScoreBtn.Size = new System.Drawing.Size(269, 106);
+            this.easyHighScoreBtn.TabIndex = 19;
+            this.easyHighScoreBtn.Text = "Easy";
+            this.easyHighScoreBtn.UseVisualStyleBackColor = false;
+            this.easyHighScoreBtn.Click += new System.EventHandler(this.easyHighScoreBtn_Click);
             // 
             // listBoxHighScores
             // 
@@ -144,7 +180,7 @@ namespace trickyTest2021
             this.levelLbl.AutoSize = true;
             this.levelLbl.BackColor = System.Drawing.Color.Transparent;
             this.levelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelLbl.Location = new System.Drawing.Point(351, 208);
+            this.levelLbl.Location = new System.Drawing.Point(458, 215);
             this.levelLbl.Name = "levelLbl";
             this.levelLbl.Size = new System.Drawing.Size(444, 135);
             this.levelLbl.TabIndex = 14;
@@ -352,42 +388,6 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
-            // 
-            // easyHighScoreBtn
-            // 
-            this.easyHighScoreBtn.BackColor = System.Drawing.Color.Yellow;
-            this.easyHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.easyHighScoreBtn.Location = new System.Drawing.Point(76, 330);
-            this.easyHighScoreBtn.Name = "easyHighScoreBtn";
-            this.easyHighScoreBtn.Size = new System.Drawing.Size(269, 106);
-            this.easyHighScoreBtn.TabIndex = 19;
-            this.easyHighScoreBtn.Text = "Easy";
-            this.easyHighScoreBtn.UseVisualStyleBackColor = false;
-            this.easyHighScoreBtn.Click += new System.EventHandler(this.easyHighScoreBtn_Click);
-            // 
-            // mediumHighScoreBtn
-            // 
-            this.mediumHighScoreBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.mediumHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediumHighScoreBtn.Location = new System.Drawing.Point(461, 330);
-            this.mediumHighScoreBtn.Name = "mediumHighScoreBtn";
-            this.mediumHighScoreBtn.Size = new System.Drawing.Size(269, 106);
-            this.mediumHighScoreBtn.TabIndex = 20;
-            this.mediumHighScoreBtn.Text = "Medium";
-            this.mediumHighScoreBtn.UseVisualStyleBackColor = false;
-            this.mediumHighScoreBtn.Click += new System.EventHandler(this.mediumHighScoreBtn_Click);
-            // 
-            // hardHighScoreBtn
-            // 
-            this.hardHighScoreBtn.BackColor = System.Drawing.Color.Red;
-            this.hardHighScoreBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hardHighScoreBtn.Location = new System.Drawing.Point(876, 330);
-            this.hardHighScoreBtn.Name = "hardHighScoreBtn";
-            this.hardHighScoreBtn.Size = new System.Drawing.Size(269, 106);
-            this.hardHighScoreBtn.TabIndex = 21;
-            this.hardHighScoreBtn.Text = "Hard";
-            this.hardHighScoreBtn.UseVisualStyleBackColor = false;
-            this.hardHighScoreBtn.Click += new System.EventHandler(this.hardHighScoreBtn_Click);
             // 
             // Form1
             // 
