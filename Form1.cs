@@ -25,6 +25,7 @@ namespace trickyTest2021
         public bool animation = true;
         public bool difficultyScreen = false;
         public bool nameScreen = false;
+        public bool highScoreScreen = false;
         public bool easy = true;
         public bool medium = false;
         public bool hard = false;
@@ -172,6 +173,10 @@ namespace trickyTest2021
             {
                 goToDifficultyScreen();
             }
+            else if(highScoreScreen == true)
+            {
+                homeScreen();
+            }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -317,6 +322,7 @@ namespace trickyTest2021
         {
             goBtn.Enabled = false;
             scoreTimer.Enabled = false;
+            clearPanel();
             score += scoreTime;
             scoreLbl.Text = score.ToString();
             scoreTime = 1000;
@@ -359,6 +365,8 @@ namespace trickyTest2021
             highScoresBtn.Visible = false;
             instructBtn.Visible = false;
             exitBtn.Visible = false;
+            backBtn.Visible = true;
+            highScoreScreen = true;
         }
 
         private void easyHighScoreBtn_Click(object sender, EventArgs e)

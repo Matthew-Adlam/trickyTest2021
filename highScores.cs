@@ -82,6 +82,7 @@ namespace trickyTest2021
             clearPanel();
             //panelGame.Visible = false;
             listBoxHighScores.Visible = true;
+            
         }
 
     }
