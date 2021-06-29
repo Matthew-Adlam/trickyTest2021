@@ -37,7 +37,6 @@ namespace trickyTest2021
             this.listBoxHighScores = new System.Windows.Forms.ListBox();
             this.scoreLbl = new System.Windows.Forms.Label();
             this.scoreText = new System.Windows.Forms.Label();
-            this.goBtn = new System.Windows.Forms.Button();
             this.levelLbl = new System.Windows.Forms.Label();
             this.livesLbl = new System.Windows.Forms.Label();
             this.livesText = new System.Windows.Forms.Label();
@@ -71,7 +70,6 @@ namespace trickyTest2021
             this.panelGame.Controls.Add(this.listBoxHighScores);
             this.panelGame.Controls.Add(this.scoreLbl);
             this.panelGame.Controls.Add(this.scoreText);
-            this.panelGame.Controls.Add(this.goBtn);
             this.panelGame.Controls.Add(this.levelLbl);
             this.panelGame.Controls.Add(this.livesLbl);
             this.panelGame.Controls.Add(this.livesText);
@@ -162,18 +160,6 @@ namespace trickyTest2021
             this.scoreText.Size = new System.Drawing.Size(101, 36);
             this.scoreText.TabIndex = 16;
             this.scoreText.Text = "Score:";
-            // 
-            // goBtn
-            // 
-            this.goBtn.BackColor = System.Drawing.Color.Yellow;
-            this.goBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goBtn.Location = new System.Drawing.Point(1232, 298);
-            this.goBtn.Name = "goBtn";
-            this.goBtn.Size = new System.Drawing.Size(100, 100);
-            this.goBtn.TabIndex = 15;
-            this.goBtn.Text = "Go!";
-            this.goBtn.UseVisualStyleBackColor = false;
-            this.goBtn.Click += new System.EventHandler(this.goBtn_Click);
             // 
             // levelLbl
             // 
@@ -427,7 +413,6 @@ namespace trickyTest2021
         private System.Windows.Forms.Label livesLbl;
         private System.Windows.Forms.Label livesText;
         private System.Windows.Forms.Label levelLbl;
-        private System.Windows.Forms.Button goBtn;
         private System.Windows.Forms.Timer scoreTimer;
         private System.Windows.Forms.Label scoreLbl;
         private System.Windows.Forms.Label scoreText;

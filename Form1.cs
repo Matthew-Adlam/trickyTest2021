@@ -71,13 +71,7 @@ namespace trickyTest2021
             // if playing 'don't touch blue' level
             else if(level == 1)
             {
-                // checks for mouse position - if it is in the same position as blue colour
-                int x = e.X;
-                int y = e.Y;
-                if (x > 100 || x < (panelGame.Width-100))
-                {
-                    checkLives();
-                }
+
             }
         }
         /// <summary>
@@ -256,19 +250,14 @@ namespace trickyTest2021
                 levelLbl.Visible = true;
                 homeLbl.Visible = false;
                 backBtn.Visible = false;
-                MessageBox.Show("Move your mouse to the left side of the screen, NOT THE GAME SCREEN, for the first level. You have been warned. You have two seconds.");
-
-                Thread.Sleep(2000);
 
                 scoreTimer.Enabled = true;
                 pauseMenu.Visible = true;
-                homeLbl.Visible = true;
                 livesLbl.Visible = true;
                 livesText.Visible = true;
                 scoreLbl.Visible = true;
                 scoreText.Visible = true;
                 livesLbl.Text = lives.ToString();
-                randomLvlInt = randomLvl.Next(1, 2);
 
                 if (level == 1)
                 {
@@ -284,20 +273,6 @@ namespace trickyTest2021
         public void level1()
         {
             level = 1;
-            homeLbl.Text = "Don't touch blue!";
-            goBtn.Visible = true;
-
-            Graphics homeScreen = panelGame.CreateGraphics();
-            Pen pen1 = new Pen(Color.Blue, 2);
-            Pen pen2 = new Pen(Color.Green, 2);
-            SolidBrush br = new SolidBrush(Color.Blue);
-            SolidBrush br2 = new SolidBrush(Color.Green);
-            homeScreen.FillRectangle(br2, 0, 0, 100, panelGame.Height);
-            homeScreen.DrawRectangle(pen2, 0, 0, 100, panelGame.Height);
-            homeScreen.FillRectangle(br2, panelGame.Width-100, 0, 100, panelGame.Height);
-            homeScreen.DrawRectangle(pen2, panelGame.Width-100, 0, 100, panelGame.Height);
-            homeScreen.FillRectangle(br, 100, 0, 800, panelGame.Height);
-            homeScreen.DrawRectangle(pen1, 100, 0, 800, panelGame.Height);
         }
 
         /// <summary>
