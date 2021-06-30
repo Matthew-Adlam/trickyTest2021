@@ -116,12 +116,15 @@ namespace trickyTest2021
             scoreLbl.Visible = false;
             scoreText.Visible = false;
             levelLbl.Visible = false;
-            goBtn.Visible = false;
             pauseMenu.Visible = false;
             listBoxHighScores.Visible = false;
             easyHighScoreBtn.Visible = false;
             mediumHighScoreBtn.Visible = false;
             hardHighScoreBtn.Visible = false;
+            picBox1.Visible = false;
+            picBox2.Visible = false;
+            picBox3.Visible = false;
+            instructLbl.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -247,16 +250,20 @@ namespace trickyTest2021
                 level = 1;
                 usernameInput.Visible = false;
                 startGame.Visible = false;
+                backBtn.Visible = false;
                 levelLbl.Visible = true;
                 homeLbl.Visible = false;
-                backBtn.Visible = false;
 
+                Thread.Sleep(1000);
+
+                levelLbl.Visible = false;
                 scoreTimer.Enabled = true;
                 pauseMenu.Visible = true;
                 livesLbl.Visible = true;
                 livesText.Visible = true;
                 scoreLbl.Visible = true;
                 scoreText.Visible = true;
+                instructLbl.Visible = true;
                 livesLbl.Text = lives.ToString();
 
                 if (level == 1)
@@ -270,18 +277,20 @@ namespace trickyTest2021
             }
            
         }
+        /// <summary>
+        /// this is the first brain teaser - 'furtherest away from us'
+        /// </summary>
         public void level1()
         {
             level = 1;
-        }
 
-        /// <summary>
-        /// the go button to complete level 1
-        /// </summary>
-        private void goBtn_Click(object sender, EventArgs e)
-        {
-            level = 2;
-            endLevel();
+            instructLbl.Text = "Which is the furtherest away from us?";
+            picBox1.Visible = true;
+            picBox1.Image = Properties.Resources.sun;
+            picBox2.Visible = true;
+            picBox2.Image = Properties.Resources.moon;
+            picBox3.Visible = true;
+            picBox3.Image = Properties.Resources.cloud;
         }
 
         private void scoreTimer_Tick(object sender, EventArgs e)
@@ -295,17 +304,13 @@ namespace trickyTest2021
 
         public void endLevel()
         {
-            goBtn.Enabled = false;
             scoreTimer.Enabled = false;
             clearPanel();
             score += scoreTime;
             scoreLbl.Text = score.ToString();
             scoreTime = 1000;
 
-            if(level == 2)
-            {
-                level2();
-            }
+            level++;
         }
 
         private void exitGameToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -379,6 +384,42 @@ namespace trickyTest2021
         public void level2()
         {
 
+        }
+
+        /// <summary>
+        /// if the sun is selected, return wrong
+        /// </summary>
+        private void picBox1_Click(object sender, EventArgs e)
+        {
+            if(level == 1)
+            {
+                MessageBox.Show("Sorry, that is wrong.");
+                checkLives();
+            }
+        }
+
+        /// <summary>
+        /// if the moon is selected, return wrong
+        /// </summary>
+        private void picBox2_Click(object sender, EventArgs e)
+        {
+            if (level == 1)
+            {
+                MessageBox.Show("Sorry, that is wrong.");
+                checkLives();
+            }
+        }
+
+        /// <summary>
+        /// if the cloud is selected, return correct
+        /// </summary>
+        private void picBox3_Click(object sender, EventArgs e)
+        {
+            if (level == 1)
+            {
+                MessageBox.Show("Congratulations! The cloud is furtherest away from the word us.");
+                endLevel();
+            }
         }
     }
 }

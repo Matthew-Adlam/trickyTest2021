@@ -23,13 +23,6 @@ namespace trickyTest2021
             {
                 endGameScreen();
             }
-            else if (level == 1)
-            {
-                // reset for special conditions for level 1
-                MessageBox.Show("Move your mouse to the left side of the screen. You have been warned. You have two seconds.");
-
-                Thread.Sleep(2000);
-            }
         }
 
         public void endGameScreen()
