@@ -31,6 +31,10 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.instructLbl = new System.Windows.Forms.Label();
+            this.picBox3 = new System.Windows.Forms.PictureBox();
+            this.picBox2 = new System.Windows.Forms.PictureBox();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.hardHighScoreBtn = new System.Windows.Forms.Button();
             this.mediumHighScoreBtn = new System.Windows.Forms.Button();
             this.easyHighScoreBtn = new System.Windows.Forms.Button();
@@ -57,20 +61,24 @@ namespace trickyTest2021
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picBox1 = new System.Windows.Forms.PictureBox();
-            this.picBox2 = new System.Windows.Forms.PictureBox();
-            this.picBox3 = new System.Windows.Forms.PictureBox();
-            this.instructLbl = new System.Windows.Forms.Label();
+            this.inputTextBox = new System.Windows.Forms.TextBox();
+            this.levelText = new System.Windows.Forms.Label();
+            this.levelLabel = new System.Windows.Forms.Label();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.panelGame.SuspendLayout();
-            this.pauseMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
+            this.pauseMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.submitBtn);
+            this.panelGame.Controls.Add(this.levelLabel);
+            this.panelGame.Controls.Add(this.levelText);
+            this.panelGame.Controls.Add(this.inputTextBox);
             this.panelGame.Controls.Add(this.instructLbl);
             this.panelGame.Controls.Add(this.picBox3);
             this.panelGame.Controls.Add(this.picBox2);
@@ -102,6 +110,46 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // instructLbl
+            // 
+            this.instructLbl.AutoSize = true;
+            this.instructLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructLbl.Location = new System.Drawing.Point(305, 44);
+            this.instructLbl.Name = "instructLbl";
+            this.instructLbl.Size = new System.Drawing.Size(122, 44);
+            this.instructLbl.TabIndex = 25;
+            this.instructLbl.Text = "label1";
+            // 
+            // picBox3
+            // 
+            this.picBox3.BackColor = System.Drawing.Color.Transparent;
+            this.picBox3.Location = new System.Drawing.Point(461, 475);
+            this.picBox3.Name = "picBox3";
+            this.picBox3.Size = new System.Drawing.Size(269, 132);
+            this.picBox3.TabIndex = 24;
+            this.picBox3.TabStop = false;
+            this.picBox3.Click += new System.EventHandler(this.picBox3_Click);
+            // 
+            // picBox2
+            // 
+            this.picBox2.BackColor = System.Drawing.Color.Transparent;
+            this.picBox2.Location = new System.Drawing.Point(461, 287);
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Size = new System.Drawing.Size(269, 132);
+            this.picBox2.TabIndex = 23;
+            this.picBox2.TabStop = false;
+            this.picBox2.Click += new System.EventHandler(this.picBox2_Click);
+            // 
+            // picBox1
+            // 
+            this.picBox1.BackColor = System.Drawing.Color.Transparent;
+            this.picBox1.Location = new System.Drawing.Point(461, 113);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(269, 132);
+            this.picBox1.TabIndex = 22;
+            this.picBox1.TabStop = false;
+            this.picBox1.Click += new System.EventHandler(this.picBox1_Click);
             // 
             // hardHighScoreBtn
             // 
@@ -155,7 +203,7 @@ namespace trickyTest2021
             this.scoreLbl.AutoSize = true;
             this.scoreLbl.BackColor = System.Drawing.Color.Transparent;
             this.scoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreLbl.Location = new System.Drawing.Point(502, 642);
+            this.scoreLbl.Location = new System.Drawing.Point(616, 642);
             this.scoreLbl.Name = "scoreLbl";
             this.scoreLbl.Size = new System.Drawing.Size(32, 36);
             this.scoreLbl.TabIndex = 17;
@@ -166,7 +214,7 @@ namespace trickyTest2021
             this.scoreText.AutoSize = true;
             this.scoreText.BackColor = System.Drawing.Color.Transparent;
             this.scoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreText.Location = new System.Drawing.Point(368, 642);
+            this.scoreText.Location = new System.Drawing.Point(494, 642);
             this.scoreText.Name = "scoreText";
             this.scoreText.Size = new System.Drawing.Size(101, 36);
             this.scoreText.TabIndex = 16;
@@ -189,7 +237,7 @@ namespace trickyTest2021
             this.livesLbl.AutoSize = true;
             this.livesLbl.BackColor = System.Drawing.Color.Transparent;
             this.livesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesLbl.Location = new System.Drawing.Point(870, 642);
+            this.livesLbl.Location = new System.Drawing.Point(853, 642);
             this.livesLbl.Name = "livesLbl";
             this.livesLbl.Size = new System.Drawing.Size(32, 36);
             this.livesLbl.TabIndex = 13;
@@ -357,7 +405,7 @@ namespace trickyTest2021
             this.menuToolStripMenuItem});
             this.pauseMenu.Location = new System.Drawing.Point(0, 0);
             this.pauseMenu.Name = "pauseMenu";
-            this.pauseMenu.Size = new System.Drawing.Size(1332, 28);
+            this.pauseMenu.Size = new System.Drawing.Size(1332, 30);
             this.pauseMenu.TabIndex = 1;
             this.pauseMenu.Text = "menuStrip1";
             // 
@@ -368,7 +416,7 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // pauseGameToolStripMenuItem
@@ -386,45 +434,47 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
-            // picBox1
+            // inputTextBox
             // 
-            this.picBox1.BackColor = System.Drawing.Color.Transparent;
-            this.picBox1.Location = new System.Drawing.Point(461, 113);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(269, 132);
-            this.picBox1.TabIndex = 22;
-            this.picBox1.TabStop = false;
-            this.picBox1.Click += new System.EventHandler(this.picBox1_Click);
+            this.inputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputTextBox.Location = new System.Drawing.Point(442, 265);
+            this.inputTextBox.Name = "inputTextBox";
+            this.inputTextBox.Size = new System.Drawing.Size(315, 53);
+            this.inputTextBox.TabIndex = 26;
             // 
-            // picBox2
+            // levelText
             // 
-            this.picBox2.BackColor = System.Drawing.Color.Transparent;
-            this.picBox2.Location = new System.Drawing.Point(461, 287);
-            this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(269, 132);
-            this.picBox2.TabIndex = 23;
-            this.picBox2.TabStop = false;
-            this.picBox2.Click += new System.EventHandler(this.picBox2_Click);
+            this.levelText.AutoSize = true;
+            this.levelText.BackColor = System.Drawing.Color.Transparent;
+            this.levelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.levelText.Location = new System.Drawing.Point(244, 642);
+            this.levelText.Name = "levelText";
+            this.levelText.Size = new System.Drawing.Size(94, 36);
+            this.levelText.TabIndex = 27;
+            this.levelText.Text = "Level:";
             // 
-            // picBox3
+            // levelLabel
             // 
-            this.picBox3.BackColor = System.Drawing.Color.Transparent;
-            this.picBox3.Location = new System.Drawing.Point(461, 475);
-            this.picBox3.Name = "picBox3";
-            this.picBox3.Size = new System.Drawing.Size(269, 132);
-            this.picBox3.TabIndex = 24;
-            this.picBox3.TabStop = false;
-            this.picBox3.Click += new System.EventHandler(this.picBox3_Click);
+            this.levelLabel.AutoSize = true;
+            this.levelLabel.BackColor = System.Drawing.Color.Transparent;
+            this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.levelLabel.Location = new System.Drawing.Point(353, 642);
+            this.levelLabel.Name = "levelLabel";
+            this.levelLabel.Size = new System.Drawing.Size(32, 36);
+            this.levelLabel.TabIndex = 28;
+            this.levelLabel.Text = "0";
             // 
-            // instructLbl
+            // submitBtn
             // 
-            this.instructLbl.AutoSize = true;
-            this.instructLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructLbl.Location = new System.Drawing.Point(305, 44);
-            this.instructLbl.Name = "instructLbl";
-            this.instructLbl.Size = new System.Drawing.Size(122, 44);
-            this.instructLbl.TabIndex = 25;
-            this.instructLbl.Text = "label1";
+            this.submitBtn.BackColor = System.Drawing.Color.Transparent;
+            this.submitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitBtn.Location = new System.Drawing.Point(481, 381);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(239, 88);
+            this.submitBtn.TabIndex = 29;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = false;
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
             // 
             // Form1
             // 
@@ -439,11 +489,11 @@ namespace trickyTest2021
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.pauseMenu.ResumeLayout(false);
             this.pauseMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,6 +532,10 @@ namespace trickyTest2021
         private System.Windows.Forms.PictureBox picBox2;
         private System.Windows.Forms.PictureBox picBox1;
         private System.Windows.Forms.Label instructLbl;
+        private System.Windows.Forms.TextBox inputTextBox;
+        private System.Windows.Forms.Label levelLabel;
+        private System.Windows.Forms.Label levelText;
+        private System.Windows.Forms.Button submitBtn;
     }
 }
 

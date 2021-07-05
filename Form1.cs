@@ -115,6 +115,8 @@ namespace trickyTest2021
             livesText.Visible = false;
             scoreLbl.Visible = false;
             scoreText.Visible = false;
+            levelLabel.Visible = false;
+            levelText.Visible = false;
             levelLbl.Visible = false;
             pauseMenu.Visible = false;
             listBoxHighScores.Visible = false;
@@ -125,6 +127,8 @@ namespace trickyTest2021
             picBox2.Visible = false;
             picBox3.Visible = false;
             instructLbl.Visible = false;
+            inputTextBox.Visible = false;
+            submitBtn.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -263,8 +267,11 @@ namespace trickyTest2021
                 livesText.Visible = true;
                 scoreLbl.Visible = true;
                 scoreText.Visible = true;
+                levelLabel.Visible = true;
+                levelText.Visible = true;
                 instructLbl.Visible = true;
                 livesLbl.Text = lives.ToString();
+                levelLabel.Text = level.ToString();
 
                 if (level == 1)
                 {
@@ -309,10 +316,18 @@ namespace trickyTest2021
             score += scoreTime;
             scoreLbl.Text = score.ToString();
             scoreTime = 1000;
-
             level++;
+            levelLabel.Text = level.ToString();
+
+            if (level == 2)
+            {
+                level2();
+            }
         }
 
+        /// <summary>
+        /// the exit menu strip item
+        /// </summary>
         private void exitGameToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             scoreTimer.Enabled = false;
@@ -331,9 +346,15 @@ namespace trickyTest2021
             }
         }
 
+        /// <summary>
+        /// the instructions given to the user on click of the button
+        /// </summary>
         private void instructBtn_Click(object sender, EventArgs e)
         {
-            // instructions here
+            MessageBox.Show("Welcome to Tricky Test. This game will challenge all aspects of your thinking, strategy and skill.");
+            MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1.");
+            MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play.");
+            MessageBox.Show("Most people do not make it past level 9. Can you do better?");
         }
 
         private void highScoresBtn_Click(object sender, EventArgs e)
@@ -383,7 +404,12 @@ namespace trickyTest2021
         }
         public void level2()
         {
-
+            instructLbl.Text = "Which is the furtherest away from us?";
+            picBox1.Visible = false;
+            picBox2.Visible = false;
+            picBox3.Visible = false;
+            inputTextBox.Visible = true;
+            submitBtn.Visible = true;
         }
 
         /// <summary>
@@ -420,6 +446,13 @@ namespace trickyTest2021
                 MessageBox.Show("Congratulations! The cloud is furtherest away from the word us.");
                 endLevel();
             }
+        }
+        /// <summary>
+        /// submit button used for level 2
+        /// </summary>
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
