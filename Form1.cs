@@ -40,6 +40,12 @@ namespace trickyTest2021
 
         public Random randomLvl = new Random();
         public int randomLvlInt = 0;
+
+        Random numRand = new Random();
+        int num1 = 0;
+        int num2 = 0;
+        bool submitBtnPressed = false;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             homeScreen();
@@ -127,8 +133,6 @@ namespace trickyTest2021
             picBox2.Visible = false;
             picBox3.Visible = false;
             instructLbl.Visible = false;
-            inputTextBox.Visible = false;
-            submitBtn.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -258,7 +262,7 @@ namespace trickyTest2021
                 levelLbl.Visible = true;
                 homeLbl.Visible = false;
 
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 levelLbl.Visible = false;
                 scoreTimer.Enabled = true;
@@ -300,6 +304,9 @@ namespace trickyTest2021
             picBox3.Image = Properties.Resources.cloud;
         }
 
+        /// <summary>
+        /// upon every tick of the score timer, decrease the potential score by 1, and if it reaches 0 or lower, set it to 0 to ensure no negative scores
+        /// </summary>
         private void scoreTimer_Tick(object sender, EventArgs e)
         {
             scoreTime--;
@@ -309,6 +316,9 @@ namespace trickyTest2021
             }
         }
 
+        /// <summary>
+        /// ends the level by stopping the timer
+        /// </summary>
         public void endLevel()
         {
             scoreTimer.Enabled = false;
@@ -352,9 +362,8 @@ namespace trickyTest2021
         private void instructBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Welcome to Tricky Test. This game will challenge all aspects of your thinking, strategy and skill.");
-            MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1.");
+            MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1. \n The levels get longer as they go. Be ready.");
             MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play.");
-            MessageBox.Show("Most people do not make it past level 9. Can you do better?");
         }
 
         private void highScoresBtn_Click(object sender, EventArgs e)
@@ -404,12 +413,9 @@ namespace trickyTest2021
         }
         public void level2()
         {
-            instructLbl.Text = "Which is the furtherest away from us?";
             picBox1.Visible = false;
             picBox2.Visible = false;
             picBox3.Visible = false;
-            inputTextBox.Visible = true;
-            submitBtn.Visible = true;
         }
 
         /// <summary>
@@ -446,13 +452,6 @@ namespace trickyTest2021
                 MessageBox.Show("Congratulations! The cloud is furtherest away from the word us.");
                 endLevel();
             }
-        }
-        /// <summary>
-        /// submit button used for level 2
-        /// </summary>
-        private void submitBtn_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
