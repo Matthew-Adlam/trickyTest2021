@@ -31,6 +31,8 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.submitBtn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.levelLabel = new System.Windows.Forms.Label();
             this.levelText = new System.Windows.Forms.Label();
             this.instructLbl = new System.Windows.Forms.Label();
@@ -61,8 +63,11 @@ namespace trickyTest2021
             this.scoreTimer = new System.Windows.Forms.Timer(this.components);
             this.pauseMenu = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hintsText = new System.Windows.Forms.Label();
+            this.hintsLbl = new System.Windows.Forms.Label();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
@@ -73,6 +78,10 @@ namespace trickyTest2021
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.hintsLbl);
+            this.panelGame.Controls.Add(this.hintsText);
+            this.panelGame.Controls.Add(this.submitBtn);
+            this.panelGame.Controls.Add(this.textBox1);
             this.panelGame.Controls.Add(this.levelLabel);
             this.panelGame.Controls.Add(this.levelText);
             this.panelGame.Controls.Add(this.instructLbl);
@@ -107,12 +116,32 @@ namespace trickyTest2021
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
             // 
+            // submitBtn
+            // 
+            this.submitBtn.BackColor = System.Drawing.Color.Lime;
+            this.submitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitBtn.Location = new System.Drawing.Point(461, 442);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(269, 106);
+            this.submitBtn.TabIndex = 30;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = false;
+            this.submitBtn.Click += new System.EventHandler(this.submitBtn_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(391, 312);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(416, 45);
+            this.textBox1.TabIndex = 29;
+            // 
             // levelLabel
             // 
             this.levelLabel.AutoSize = true;
             this.levelLabel.BackColor = System.Drawing.Color.Transparent;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelLabel.Location = new System.Drawing.Point(353, 642);
+            this.levelLabel.Location = new System.Drawing.Point(358, 642);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(32, 36);
             this.levelLabel.TabIndex = 28;
@@ -123,7 +152,7 @@ namespace trickyTest2021
             this.levelText.AutoSize = true;
             this.levelText.BackColor = System.Drawing.Color.Transparent;
             this.levelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelText.Location = new System.Drawing.Point(244, 642);
+            this.levelText.Location = new System.Drawing.Point(228, 642);
             this.levelText.Name = "levelText";
             this.levelText.Size = new System.Drawing.Size(94, 36);
             this.levelText.TabIndex = 27;
@@ -221,7 +250,7 @@ namespace trickyTest2021
             this.scoreLbl.AutoSize = true;
             this.scoreLbl.BackColor = System.Drawing.Color.Transparent;
             this.scoreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreLbl.Location = new System.Drawing.Point(616, 642);
+            this.scoreLbl.Location = new System.Drawing.Point(550, 642);
             this.scoreLbl.Name = "scoreLbl";
             this.scoreLbl.Size = new System.Drawing.Size(32, 36);
             this.scoreLbl.TabIndex = 17;
@@ -232,7 +261,7 @@ namespace trickyTest2021
             this.scoreText.AutoSize = true;
             this.scoreText.BackColor = System.Drawing.Color.Transparent;
             this.scoreText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scoreText.Location = new System.Drawing.Point(494, 642);
+            this.scoreText.Location = new System.Drawing.Point(419, 642);
             this.scoreText.Name = "scoreText";
             this.scoreText.Size = new System.Drawing.Size(101, 36);
             this.scoreText.TabIndex = 16;
@@ -255,7 +284,7 @@ namespace trickyTest2021
             this.livesLbl.AutoSize = true;
             this.livesLbl.BackColor = System.Drawing.Color.Transparent;
             this.livesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesLbl.Location = new System.Drawing.Point(853, 642);
+            this.livesLbl.Location = new System.Drawing.Point(765, 642);
             this.livesLbl.Name = "livesLbl";
             this.livesLbl.Size = new System.Drawing.Size(32, 36);
             this.livesLbl.TabIndex = 13;
@@ -266,7 +295,7 @@ namespace trickyTest2021
             this.livesText.AutoSize = true;
             this.livesText.BackColor = System.Drawing.Color.Transparent;
             this.livesText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.livesText.Location = new System.Drawing.Point(745, 642);
+            this.livesText.Location = new System.Drawing.Point(637, 642);
             this.livesText.Name = "livesText";
             this.livesText.Size = new System.Drawing.Size(93, 36);
             this.livesText.TabIndex = 12;
@@ -430,6 +459,7 @@ namespace trickyTest2021
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hintToolStripMenuItem,
             this.pauseGameToolStripMenuItem,
             this.exitGameToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
@@ -437,20 +467,50 @@ namespace trickyTest2021
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
+            // hintToolStripMenuItem
+            // 
+            this.hintToolStripMenuItem.Name = "hintToolStripMenuItem";
+            this.hintToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.hintToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.hintToolStripMenuItem.Text = "Hint";
+            this.hintToolStripMenuItem.Click += new System.EventHandler(this.hintToolStripMenuItem_Click);
+            // 
             // pauseGameToolStripMenuItem
             // 
             this.pauseGameToolStripMenuItem.Name = "pauseGameToolStripMenuItem";
             this.pauseGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pauseGameToolStripMenuItem.Text = "Pause Game";
             // 
             // exitGameToolStripMenuItem
             // 
             this.exitGameToolStripMenuItem.Name = "exitGameToolStripMenuItem";
             this.exitGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
+            // 
+            // hintsText
+            // 
+            this.hintsText.AutoSize = true;
+            this.hintsText.BackColor = System.Drawing.Color.Transparent;
+            this.hintsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hintsText.Location = new System.Drawing.Point(844, 642);
+            this.hintsText.Name = "hintsText";
+            this.hintsText.Size = new System.Drawing.Size(91, 36);
+            this.hintsText.TabIndex = 31;
+            this.hintsText.Text = "Hints:";
+            // 
+            // hintsLbl
+            // 
+            this.hintsLbl.AutoSize = true;
+            this.hintsLbl.BackColor = System.Drawing.Color.Transparent;
+            this.hintsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hintsLbl.Location = new System.Drawing.Point(973, 642);
+            this.hintsLbl.Name = "hintsLbl";
+            this.hintsLbl.Size = new System.Drawing.Size(32, 36);
+            this.hintsLbl.TabIndex = 32;
+            this.hintsLbl.Text = "0";
             // 
             // Form1
             // 
@@ -510,6 +570,11 @@ namespace trickyTest2021
         private System.Windows.Forms.Label instructLbl;
         private System.Windows.Forms.Label levelLabel;
         private System.Windows.Forms.Label levelText;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button submitBtn;
+        private System.Windows.Forms.ToolStripMenuItem hintToolStripMenuItem;
+        private System.Windows.Forms.Label hintsLbl;
+        private System.Windows.Forms.Label hintsText;
     }
 }
 

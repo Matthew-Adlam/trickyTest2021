@@ -18,7 +18,7 @@ namespace trickyTest2021
             StreamWriter writer;
             StreamReader reader;
 
-            string binPath = Application.StartupPath + @"\easyScores.txt";
+            string binPath = "";
 
             if (easy == true)
             {
@@ -34,6 +34,7 @@ namespace trickyTest2021
             }
 
             List<(string, int)> highScores = new List<(string, int)>();
+
             //writer = File.OpenText(binPath);
             string line = "";
             string[] values;

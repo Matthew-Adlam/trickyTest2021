@@ -31,6 +31,7 @@ namespace trickyTest2021
         public bool hard = false;
         // current level
         public int level = 0;
+        public int hints = 3;
 
         public string username = "";
 
@@ -40,11 +41,6 @@ namespace trickyTest2021
 
         public Random randomLvl = new Random();
         public int randomLvlInt = 0;
-
-        Random numRand = new Random();
-        int num1 = 0;
-        int num2 = 0;
-        bool submitBtnPressed = false;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -124,6 +120,8 @@ namespace trickyTest2021
             levelLabel.Visible = false;
             levelText.Visible = false;
             levelLbl.Visible = false;
+            hintsText.Visible = false;
+            hintsLbl.Visible = false;
             pauseMenu.Visible = false;
             listBoxHighScores.Visible = false;
             easyHighScoreBtn.Visible = false;
@@ -133,6 +131,8 @@ namespace trickyTest2021
             picBox2.Visible = false;
             picBox3.Visible = false;
             instructLbl.Visible = false;
+            textBox1.Visible = false;
+            submitBtn.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -205,6 +205,7 @@ namespace trickyTest2021
         {
             MessageBox.Show("Difficulty set to Easy");
             lives = 5;
+            hints = 3;
             difficultyBtnPressed();
             easy = true;
             medium = false;
@@ -215,6 +216,7 @@ namespace trickyTest2021
         {
             MessageBox.Show("Difficulty set to Medium");
             lives = 3;
+            hints = 2;
             difficultyBtnPressed();
             easy = false;
             medium = true;
@@ -225,6 +227,7 @@ namespace trickyTest2021
         {
             MessageBox.Show("Difficulty set to Hard");
             lives = 1;
+            hints = 1;
             difficultyBtnPressed();
             easy = false;
             medium = false;
@@ -273,9 +276,13 @@ namespace trickyTest2021
                 scoreText.Visible = true;
                 levelLabel.Visible = true;
                 levelText.Visible = true;
+                hintsLbl.Visible = true;
+                hintsText.Visible = true;
                 instructLbl.Visible = true;
                 livesLbl.Text = lives.ToString();
+                scoreLbl.Text = score.ToString();
                 levelLabel.Text = level.ToString();
+                hintsLbl.Text = hints.ToString();
 
                 if (level == 1)
                 {
@@ -333,6 +340,10 @@ namespace trickyTest2021
             {
                 level2();
             }
+            else if(level == 3)
+            {
+                level3();
+            }
         }
 
         /// <summary>
@@ -363,7 +374,8 @@ namespace trickyTest2021
         {
             MessageBox.Show("Welcome to Tricky Test. This game will challenge all aspects of your thinking, strategy and skill.");
             MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1. \n The levels get longer as they go. Be ready.");
-            MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play.");
+            MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play. \n Note: Your score is determined by how many levels you complete and how fast you complete them.");
+            MessageBox.Show("Click the ingame menu to access hints, pause the game or exit.");
         }
 
         private void highScoresBtn_Click(object sender, EventArgs e)
@@ -413,9 +425,14 @@ namespace trickyTest2021
         }
         public void level2()
         {
+            instructLbl.Text = "What comes directly after 2?";
             picBox1.Visible = false;
             picBox2.Visible = false;
             picBox3.Visible = false;
+            textBox1.Visible = true;
+            submitBtn.Visible = true;
+            scoreTimer.Enabled = true;
+            scoreTimer.Interval = 15;
         }
 
         /// <summary>
@@ -452,6 +469,66 @@ namespace trickyTest2021
                 MessageBox.Show("Congratulations! The cloud is furtherest away from the word us.");
                 endLevel();
             }
+        }
+
+        /// <summary>
+        /// the submit button for level 2
+        /// </summary>
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+            // if level 2
+            if(level == 2)
+            {
+                if(textBox1.Text == "?")
+                {
+                    MessageBox.Show("Congratulations! ? comes DIRECTLY after 2.");
+                    endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong.");
+                    checkLives();
+                }
+            }
+        }
+
+        public void level3()
+        {
+            textBox1.Visible = false;
+            submitBtn.Visible = false;
+            scoreTimer.Enabled = true;
+        }
+
+        /// <summary>
+        /// give players hints. Hint number is determined by difficulty - 3 for easy, 2 for medium and 1 for hard.
+        /// </summary>
+        private void hintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(hints > 0)
+            {
+                if (level == 1)
+                {
+                    MessageBox.Show("What do you think I mean by us?");
+                    hints--;
+                    hintsLbl.Text = hints.ToString();
+                }
+                else if (level == 2)
+                {
+                    MessageBox.Show("Look at the sentence involving 2.");
+                    hints--;
+                    hintsLbl.Text = hints.ToString();
+                }
+                else if (level == 3)
+                {
+                    hints--;
+                    hintsLbl.Text = hints.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sorry, no hints remaining.");
+            }
+
         }
     }
 }
