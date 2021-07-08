@@ -296,12 +296,12 @@ namespace trickyTest2021
            
         }
         /// <summary>
-        /// this is the first brain teaser - 'furtherest away from us'
+        /// this is the first brain teaser - 'furtherest away from us'. the base code to set it up
         /// </summary>
         public void level1()
         {
             level = 1;
-
+            scoreTimer.Interval = 25;
             instructLbl.Text = "Which is the furtherest away from us?";
             picBox1.Visible = true;
             picBox1.Image = Properties.Resources.sun;
@@ -344,6 +344,10 @@ namespace trickyTest2021
             {
                 level3();
             }
+            else if(level == 4)
+            {
+                level4();
+            }
         }
 
         /// <summary>
@@ -378,6 +382,9 @@ namespace trickyTest2021
             MessageBox.Show("Click the ingame menu to access hints, pause the game or exit.");
         }
 
+        /// <summary>
+        /// upon high score button being clicked on home menu
+        /// </summary>
         private void highScoresBtn_Click(object sender, EventArgs e)
         {
             easyHighScoreBtn.Visible = true;
@@ -391,6 +398,9 @@ namespace trickyTest2021
             highScoreScreen = true;
         }
 
+        /// <summary>
+        /// when user selects option to view easy scores
+        /// </summary>
         private void easyHighScoreBtn_Click(object sender, EventArgs e)
         {
             easyHighScoreBtn.Visible = false;
@@ -402,6 +412,9 @@ namespace trickyTest2021
             updateHighScores(score, username);
         }
 
+        /// <summary>
+        /// when user selects option to view medium scores
+        /// </summary>
         private void mediumHighScoreBtn_Click(object sender, EventArgs e)
         {
             easyHighScoreBtn.Visible = false;
@@ -413,6 +426,9 @@ namespace trickyTest2021
             updateHighScores(score, username);
         }
 
+        /// <summary>
+        /// when user selects option to view hard scores
+        /// </summary>
         private void hardHighScoreBtn_Click(object sender, EventArgs e)
         {
             easyHighScoreBtn.Visible = false;
@@ -423,6 +439,9 @@ namespace trickyTest2021
             hard = true;
             updateHighScores(score, username);
         }
+        /// <summary>
+        /// the base code to set up level 2
+        /// </summary>
         public void level2()
         {
             instructLbl.Text = "What comes directly after 2?";
@@ -432,7 +451,7 @@ namespace trickyTest2021
             textBox1.Visible = true;
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
-            scoreTimer.Interval = 15;
+            scoreTimer.Interval = 24;
         }
 
         /// <summary>
@@ -472,7 +491,7 @@ namespace trickyTest2021
         }
 
         /// <summary>
-        /// the submit button for level 2
+        /// the submit button for level 2 and 3
         /// </summary>
         private void submitBtn_Click(object sender, EventArgs e)
         {
@@ -491,11 +510,11 @@ namespace trickyTest2021
                 }
             }
             
-            if(level == 3)
+            else if(level == 3)
             {
                 if(textBox1.Text == "91" || textBox1.Text == "91st")
                 {
-                    MessageBox.Show("Congratulations! You will be in 91st place.");
+                    MessageBox.Show("Congratulations! You will be in 91st place if you overtake 91st place.");
                     endLevel();
                 }
                 else
@@ -506,10 +525,14 @@ namespace trickyTest2021
             }
         }
 
+        /// <summary>
+        /// the base code to set up level 3
+        /// </summary>
         public void level3()
         {
-            instructLbl.Text = "If you overtake the 91st \n person in a race, which \n place are you in?";
+            instructLbl.Text = "If you overtake the 91st person in a race, \n which place are you in?";
             textBox1.Visible = true;
+            textBox1.Text = "";
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
         }
@@ -535,7 +558,7 @@ namespace trickyTest2021
                 }
                 else if (level == 3)
                 {
-                    MessageBox.Show("If you overtake first place, what place are you then?");
+                    MessageBox.Show("If you overtake first place, what place are you then? Same deal.");
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
@@ -544,6 +567,14 @@ namespace trickyTest2021
             {
                 MessageBox.Show("Sorry, no hints remaining.");
             }
+
+        }
+
+        /// <summary>
+        /// the base code to start level 4
+        /// </summary>
+        public void level4()
+        {
 
         }
     }
