@@ -26,7 +26,7 @@ namespace trickyTest2021
         public bool difficultyScreen = false;
         public bool nameScreen = false;
         public bool highScoreScreen = false;
-        public bool easy = true;
+        public bool easy = false;
         public bool medium = false;
         public bool hard = false;
         // current level
@@ -490,12 +490,27 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
+            
+            if(level == 3)
+            {
+                if(textBox1.Text == "91" || textBox1.Text == "91st")
+                {
+                    MessageBox.Show("Congratulations! You will be in 91st place.");
+                    endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong.");
+                    checkLives();
+                }
+            }
         }
 
         public void level3()
         {
-            textBox1.Visible = false;
-            submitBtn.Visible = false;
+            instructLbl.Text = "If you overtake the 91st \n person in a race, which \n place are you in?";
+            textBox1.Visible = true;
+            submitBtn.Visible = true;
             scoreTimer.Enabled = true;
         }
 
@@ -520,6 +535,7 @@ namespace trickyTest2021
                 }
                 else if (level == 3)
                 {
+                    MessageBox.Show("If you overtake first place, what place are you then?");
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }

@@ -70,6 +70,7 @@ namespace trickyTest2021
 
             highScores = highScores.OrderByDescending(x => x.Item2).Take(10).ToList();
 
+            listBoxHighScores.Items.Clear();
             foreach (var (name, score2) in highScores)
             {
                 listBoxHighScores.Items.Add(name.PadRight(10) + score2);
