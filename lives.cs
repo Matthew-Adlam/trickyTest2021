@@ -27,6 +27,7 @@ namespace trickyTest2021
 
         public void endGameScreen()
         {
+            MessageBox.Show("Sorry, you have run out of lives.");
             updateHighScores(score, username);
             homeScreen();
         }

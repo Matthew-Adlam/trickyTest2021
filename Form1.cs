@@ -70,11 +70,6 @@ namespace trickyTest2021
                 homeScreen.DrawEllipse(pen1, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size);
 
             }
-            // if playing 'don't touch blue' level
-            else if(level == 1)
-            {
-
-            }
         }
         /// <summary>
         /// the code to exit the game, confirm that the user wants to
@@ -133,9 +128,11 @@ namespace trickyTest2021
             instructLbl.Visible = false;
             textBox1.Visible = false;
             submitBtn.Visible = false;
+            findXLbl.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
+            this.ActiveControl = startBtn;
         }
 
         private void startBtn_Click(object sender, EventArgs e)
@@ -259,13 +256,14 @@ namespace trickyTest2021
             if(usernameInput.Text != "")
             {
                 level = 1;
+                score = 0;
                 usernameInput.Visible = false;
                 startGame.Visible = false;
                 backBtn.Visible = false;
                 levelLbl.Visible = true;
                 homeLbl.Visible = false;
 
-                Thread.Sleep(500);
+                Thread.Sleep(250);
 
                 levelLbl.Visible = false;
                 scoreTimer.Enabled = true;
@@ -301,7 +299,7 @@ namespace trickyTest2021
         public void level1()
         {
             level = 1;
-            scoreTimer.Interval = 25;
+            scoreTimer.Interval = 30;
             instructLbl.Text = "Which is the furtherest away from us?";
             picBox1.Visible = true;
             picBox1.Image = Properties.Resources.sun;
@@ -340,13 +338,17 @@ namespace trickyTest2021
             {
                 level2();
             }
-            else if(level == 3)
+            else if (level == 3)
             {
                 level3();
             }
-            else if(level == 4)
+            else if (level == 4)
             {
                 level4();
+            }
+            else if (level == 5)
+            {
+                level5();
             }
         }
 
@@ -379,7 +381,7 @@ namespace trickyTest2021
             MessageBox.Show("Welcome to Tricky Test. This game will challenge all aspects of your thinking, strategy and skill.");
             MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1. \n The levels get longer as they go. Be ready.");
             MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play. \n Note: Your score is determined by how many levels you complete and how fast you complete them.");
-            MessageBox.Show("Click the ingame menu to access hints, pause the game or exit.");
+            MessageBox.Show("Click the ingame menu to access hints, pause the game or exit. \n Number of hints will be determined based on difficulty. \n Feel free to post an issue in the repository if you think the hints make it too easy or are not good enough.");
         }
 
         /// <summary>
@@ -451,7 +453,7 @@ namespace trickyTest2021
             textBox1.Visible = true;
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
-            scoreTimer.Interval = 24;
+            scoreTimer.Interval = 35;
         }
 
         /// <summary>
@@ -495,10 +497,10 @@ namespace trickyTest2021
         /// </summary>
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            // if level 2
-            if(level == 2)
+            // if level 2, check for the ? symbol
+            if (level == 2)
             {
-                if(textBox1.Text == "?")
+                if (textBox1.Text == "?")
                 {
                     MessageBox.Show("Congratulations! ? comes DIRECTLY after 2.");
                     endLevel();
@@ -509,10 +511,10 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
-            
-            else if(level == 3)
+
+            else if (level == 3)
             {
-                if(textBox1.Text == "91" || textBox1.Text == "91st")
+                if (textBox1.Text == "91" || textBox1.Text == "91st")
                 {
                     MessageBox.Show("Congratulations! You will be in 91st place if you overtake 91st place.");
                     endLevel();
@@ -522,6 +524,10 @@ namespace trickyTest2021
                     MessageBox.Show("Sorry, that is wrong.");
                     checkLives();
                 }
+            }
+            else if (level == 4)
+            {
+                MessageBox.Show("Sorry, that is wrong.");
             }
         }
 
@@ -562,6 +568,12 @@ namespace trickyTest2021
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
+                else if(level == 4)
+                {
+                    MessageBox.Show("Who said you had to do math?");
+                    hints--;
+                    hintsLbl.Text = hints.ToString();
+                }
             }
             else
             {
@@ -574,6 +586,28 @@ namespace trickyTest2021
         /// the base code to start level 4
         /// </summary>
         public void level4()
+        {
+            instructLbl.Text = "Quick, find x";
+            submitBtn.Visible = true;
+            scoreTimer.Enabled = true;
+            scoreTimer.Interval = 40;
+            textBox1.Visible = true;
+            textBox1.Text = "";
+
+            findXLbl.Visible = true;
+            findXLbl.Text = "x^9 + 8x^4 - 2x^7 + 3x^3 + 4x - 123 = 0";
+        }
+
+        private void instructLbl_Click(object sender, EventArgs e)
+        {
+            if (level == 4)
+            {
+                MessageBox.Show("Nice! You found x!");
+                endLevel();
+            }
+        }
+
+        public void level5()
         {
 
         }
