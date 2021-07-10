@@ -23,6 +23,10 @@ namespace trickyTest2021
             {
                 endGameScreen();
             }
+            else if (level == 5)
+            {
+                drawBalls();
+            }
         }
 
         public void endGameScreen()

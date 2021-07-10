@@ -348,7 +348,12 @@ namespace trickyTest2021
             }
             else if (level == 5)
             {
+                MessageBox.Show("Count the number of pink circles. You have a few seconds.");
                 level5();
+            }
+            else if(level == 6)
+            {
+                level6();
             }
         }
 
@@ -529,6 +534,19 @@ namespace trickyTest2021
             {
                 MessageBox.Show("Sorry, that is wrong.");
             }
+            else if (level == 5)
+            {
+                if(textBox1.Text == pinkBalls.ToString())
+                {
+                    MessageBox.Show("You have a good memory. Nice!");
+                    endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong.");
+                    checkLives();
+                }
+            }
         }
 
         /// <summary>
@@ -568,11 +586,15 @@ namespace trickyTest2021
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
-                else if(level == 4)
+                else if (level == 4)
                 {
                     MessageBox.Show("Who said you had to do math?");
                     hints--;
                     hintsLbl.Text = hints.ToString();
+                }
+                else if (level == 5)
+                {
+                    MessageBox.Show("No hint allowed for this level.");
                 }
             }
             else
@@ -604,12 +626,38 @@ namespace trickyTest2021
             {
                 MessageBox.Show("Nice! You found x!");
                 endLevel();
+                instructLbl.Text = "How many pink circles were there?";
+
             }
         }
 
         public void level5()
         {
+            instructLbl.Text = "";
+            livesLbl.Visible = false;
+            livesText.Visible = false;
+            scoreLbl.Visible = false;
+            scoreText.Visible = false;
+            levelLabel.Visible = false;
+            levelText.Visible = false;
+            hintsText.Visible = false;
+            hintsLbl.Visible = false;
 
+            Thread.Sleep(400);
+
+            submitBtn.Visible = false;
+            textBox1.Text = "";
+            textBox1.Visible = false;
+            findXLbl.Visible = false;
+            drawBalls();
+        }
+
+        public void level6()
+        {
+            submitBtn.Visible = false;
+            textBox1.Text = "";
+            textBox1.Visible = false;
+            instructLbl.Visible = true;
         }
     }
 }
