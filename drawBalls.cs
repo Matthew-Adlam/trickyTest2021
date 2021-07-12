@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -91,8 +93,21 @@ namespace trickyTest2021
                 y += BALL_SIZE + GAP_SIZE;
                 x = 20;
             }
+            int wait = 0;
 
-            Thread.Sleep(4000);
+            if (easy == true)
+            {
+                wait = 4000;
+            }
+            else if(medium == true)
+            {
+                wait = 3000;
+            }
+            else if(hard == true)
+            {
+                wait = 2000;
+            }
+            Thread.Sleep(wait);
 
             clearPanel();
 
@@ -111,6 +126,8 @@ namespace trickyTest2021
 
             scoreTimer.Interval = 20; // quick interval
             scoreTimer.Enabled = true;
+
+
         }
     }
 }

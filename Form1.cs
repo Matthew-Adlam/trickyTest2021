@@ -631,6 +631,9 @@ namespace trickyTest2021
             }
         }
 
+        /// <summary>
+        /// the base code to start level 5
+        /// </summary>
         public void level5()
         {
             instructLbl.Text = "";
@@ -652,12 +655,17 @@ namespace trickyTest2021
             drawBalls();
         }
 
+        /// <summary>
+        /// the base code to start level 6
+        /// </summary>
         public void level6()
         {
             submitBtn.Visible = false;
             textBox1.Text = "";
             textBox1.Visible = false;
             instructLbl.Visible = true;
+            instructLbl.Text = "";
+            scoreTimer.Enabled = true;
         }
     }
 }

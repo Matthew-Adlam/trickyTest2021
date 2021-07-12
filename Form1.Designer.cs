@@ -31,6 +31,7 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.findXLbl = new System.Windows.Forms.Label();
             this.hintsLbl = new System.Windows.Forms.Label();
             this.hintsText = new System.Windows.Forms.Label();
             this.submitBtn = new System.Windows.Forms.Button();
@@ -68,7 +69,13 @@ namespace trickyTest2021
             this.hintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findXLbl = new System.Windows.Forms.Label();
+            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.level1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.level2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.level3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.level4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.level5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.level6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
@@ -118,6 +125,15 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // findXLbl
+            // 
+            this.findXLbl.AutoSize = true;
+            this.findXLbl.Location = new System.Drawing.Point(242, 199);
+            this.findXLbl.Name = "findXLbl";
+            this.findXLbl.Size = new System.Drawing.Size(41, 46);
+            this.findXLbl.TabIndex = 33;
+            this.findXLbl.Text = "x";
             // 
             // hintsLbl
             // 
@@ -475,10 +491,11 @@ namespace trickyTest2021
             // 
             this.pauseMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.pauseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
+            this.menuToolStripMenuItem,
+            this.debugToolStripMenuItem});
             this.pauseMenu.Location = new System.Drawing.Point(0, 0);
             this.pauseMenu.Name = "pauseMenu";
-            this.pauseMenu.Size = new System.Drawing.Size(1332, 30);
+            this.pauseMenu.Size = new System.Drawing.Size(1332, 28);
             this.pauseMenu.TabIndex = 1;
             this.pauseMenu.Text = "menuStrip1";
             // 
@@ -490,7 +507,7 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // hintToolStripMenuItem
@@ -516,14 +533,60 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
-            // findXLbl
+            // debugToolStripMenuItem
             // 
-            this.findXLbl.AutoSize = true;
-            this.findXLbl.Location = new System.Drawing.Point(242, 199);
-            this.findXLbl.Name = "findXLbl";
-            this.findXLbl.Size = new System.Drawing.Size(41, 46);
-            this.findXLbl.TabIndex = 33;
-            this.findXLbl.Text = "x";
+            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.level1ToolStripMenuItem,
+            this.level2ToolStripMenuItem,
+            this.level3ToolStripMenuItem,
+            this.level4ToolStripMenuItem,
+            this.level5ToolStripMenuItem,
+            this.level6ToolStripMenuItem});
+            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
+            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
+            this.debugToolStripMenuItem.Text = "Debug";
+            // 
+            // level1ToolStripMenuItem
+            // 
+            this.level1ToolStripMenuItem.Name = "level1ToolStripMenuItem";
+            this.level1ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.level1ToolStripMenuItem.Text = "Level 1";
+            this.level1ToolStripMenuItem.Click += new System.EventHandler(this.level1ToolStripMenuItem_Click);
+            // 
+            // level2ToolStripMenuItem
+            // 
+            this.level2ToolStripMenuItem.Name = "level2ToolStripMenuItem";
+            this.level2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.level2ToolStripMenuItem.Text = "Level 2";
+            this.level2ToolStripMenuItem.Click += new System.EventHandler(this.level2ToolStripMenuItem_Click);
+            // 
+            // level3ToolStripMenuItem
+            // 
+            this.level3ToolStripMenuItem.Name = "level3ToolStripMenuItem";
+            this.level3ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.level3ToolStripMenuItem.Text = "Level 3";
+            this.level3ToolStripMenuItem.Click += new System.EventHandler(this.level3ToolStripMenuItem_Click);
+            // 
+            // level4ToolStripMenuItem
+            // 
+            this.level4ToolStripMenuItem.Name = "level4ToolStripMenuItem";
+            this.level4ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.level4ToolStripMenuItem.Text = "Level 4";
+            this.level4ToolStripMenuItem.Click += new System.EventHandler(this.level4ToolStripMenuItem_Click);
+            // 
+            // level5ToolStripMenuItem
+            // 
+            this.level5ToolStripMenuItem.Name = "level5ToolStripMenuItem";
+            this.level5ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.level5ToolStripMenuItem.Text = "Level 5";
+            this.level5ToolStripMenuItem.Click += new System.EventHandler(this.level5ToolStripMenuItem_Click);
+            // 
+            // level6ToolStripMenuItem
+            // 
+            this.level6ToolStripMenuItem.Name = "level6ToolStripMenuItem";
+            this.level6ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.level6ToolStripMenuItem.Text = "Level 6";
+            this.level6ToolStripMenuItem.Click += new System.EventHandler(this.level6ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -589,6 +652,13 @@ namespace trickyTest2021
         private System.Windows.Forms.Label hintsLbl;
         private System.Windows.Forms.Label hintsText;
         private System.Windows.Forms.Label findXLbl;
+        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem level1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem level2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem level3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem level4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem level5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem level6ToolStripMenuItem;
     }
 }
 
