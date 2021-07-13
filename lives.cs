@@ -31,6 +31,12 @@ namespace trickyTest2021
             {
                 drawBalls();
             }
+            else if (level == 6)
+            {
+                clickBtnClicked = 25;
+                actualClickBtnClicked = 25;
+                clickyBtn.Text = clickBtnClicked.ToString();
+            }
         }
 
         public void endGameScreen()

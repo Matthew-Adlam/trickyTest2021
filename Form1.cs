@@ -42,6 +42,9 @@ namespace trickyTest2021
         public Random randomLvl = new Random();
         public int randomLvlInt = 0;
 
+        public int clickBtnClicked = 25; // both of these are for lvl 6
+        public int actualClickBtnClicked = 25;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             homeScreen();
@@ -129,6 +132,7 @@ namespace trickyTest2021
             textBox1.Visible = false;
             submitBtn.Visible = false;
             findXLbl.Visible = false;
+            clickyBtn.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -547,6 +551,19 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
+            else if(level == 6)
+            {
+                if(actualClickBtnClicked == 0)
+                {
+                    MessageBox.Show("I didn't fool you? Great work!");
+                    endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong. The clicks have been reset.");
+                    checkLives();
+                }
+            }
         }
 
         /// <summary>
@@ -592,7 +609,7 @@ namespace trickyTest2021
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
-                else if (level == 5)
+                else if (level == 5 || level == 6)
                 {
                     MessageBox.Show("No hint allowed for this level.");
                 }
@@ -612,7 +629,7 @@ namespace trickyTest2021
             instructLbl.Text = "Quick, find x";
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
-            scoreTimer.Interval = 40;
+            scoreTimer.Interval = 35;
             textBox1.Visible = true;
             textBox1.Text = "";
 
@@ -660,12 +677,53 @@ namespace trickyTest2021
         /// </summary>
         public void level6()
         {
-            submitBtn.Visible = false;
+            submitBtn.Visible = true;
             textBox1.Text = "";
             textBox1.Visible = false;
             instructLbl.Visible = true;
-            instructLbl.Text = "";
+            instructLbl.Text = "Click the pink button 25 times.";
             scoreTimer.Enabled = true;
+            clickyBtn.Visible = true;
+
+            scoreTimer.Interval = 32; // make it a little harder to earn points
+        }
+
+        /// <summary>
+        /// code to pause the game, stopping the timer and giving the user the choice of when they resume
+        /// </summary>
+        private void pauseGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            scoreTimer.Enabled = false;
+
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            string msg = "The game is paused. Press OK to unpause the game.";
+            string title = "Paused";
+            DialogResult result = MessageBox.Show(msg, title, buttons);
+
+            if(result == DialogResult.OK)
+            {
+                scoreTimer.Enabled = true;
+            }
+
+        }
+
+        private void clickyBtn_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            int offset = rand.Next(-2, 3); // the offset to the buttons number
+            int chance = rand.Next(1, 11); // the chance for offset to happen
+
+            if(chance == 1)
+            {
+                clickBtnClicked += offset;
+            }
+            else
+            {
+                clickBtnClicked--;
+            }
+
+            clickyBtn.Text = clickBtnClicked.ToString();
+            actualClickBtnClicked--;
         }
     }
 }

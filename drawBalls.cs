@@ -52,35 +52,44 @@ namespace trickyTest2021
             {
                 while (ycounter < columns)
                 {
-                    colour = randColour.Next(1, 41);
+                    colour = randColour.Next(0, 31); // returns a number from 0-30
                     Pen pen1 = new Pen(Color.Red, 2);
                     SolidBrush br = new SolidBrush(Color.Blue);
-                    if (colour < 10)
+                    if (colour < 5) // if its 0-4
                     {
                         pen1.Color = Color.Blue;
                         br.Color = Color.Blue;
                     }
-                    else if (colour < 20)
+                    else if (colour < 10) // if its 5-9
                     {
                         pen1.Color = Color.Orange;
                         br.Color = Color.Orange;
                     }
-                    else if (colour < 30)
+                    else if (colour < 15) // if its 10-14
                     {
                         pen1.Color = Color.Green;
                         br.Color = Color.Green;
                     }
-                    else if (colour < 40)
+                    else if (colour < 20)// if its 15-19
                     {
                         pen1.Color = Color.Red;
                         br.Color = Color.Red;
                     }
-                    else if (colour == 40)
+                    else if (colour < 25)// if its 20-24
+                    {
+                        pen1.Color = Color.Yellow;
+                        br.Color = Color.Yellow;
+                    }
+                    else if (colour < 30)// if its 25-29
+                    {
+                        pen1.Color = Color.Brown;
+                        br.Color = Color.Brown;
+                    }
+                    else if (colour == 30)// if it is 30
                     {
                         pen1.Color = Color.Pink;
                         br.Color = Color.Pink;
-                        pinkBalls++;
-                        Console.WriteLine(pinkBalls);
+                        pinkBalls++;                       
                     }
 
                     paper.FillEllipse(br, x, y, BALL_SIZE, BALL_SIZE);
@@ -93,6 +102,8 @@ namespace trickyTest2021
                 y += BALL_SIZE + GAP_SIZE;
                 x = 20;
             }
+            Console.WriteLine(pinkBalls); // for debug
+
             int wait = 0;
 
             if (easy == true)
@@ -122,7 +133,7 @@ namespace trickyTest2021
 
             submitBtn.Visible = true;
             textBox1.Visible = true;
-            instructBtn.Text = "How many pink circles were there?";
+            instructLbl.Text = "How many pink circles were there?";
 
             scoreTimer.Interval = 20; // quick interval
             scoreTimer.Enabled = true;

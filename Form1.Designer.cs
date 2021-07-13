@@ -69,13 +69,7 @@ namespace trickyTest2021
             this.hintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.level1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.level2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.level3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.level4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.level5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.level6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clickyBtn = new System.Windows.Forms.Button();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
@@ -86,6 +80,7 @@ namespace trickyTest2021
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.clickyBtn);
             this.panelGame.Controls.Add(this.findXLbl);
             this.panelGame.Controls.Add(this.hintsLbl);
             this.panelGame.Controls.Add(this.hintsText);
@@ -491,8 +486,7 @@ namespace trickyTest2021
             // 
             this.pauseMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.pauseMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem,
-            this.debugToolStripMenuItem});
+            this.menuToolStripMenuItem});
             this.pauseMenu.Location = new System.Drawing.Point(0, 0);
             this.pauseMenu.Name = "pauseMenu";
             this.pauseMenu.Size = new System.Drawing.Size(1332, 28);
@@ -514,7 +508,7 @@ namespace trickyTest2021
             // 
             this.hintToolStripMenuItem.Name = "hintToolStripMenuItem";
             this.hintToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.hintToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.hintToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.hintToolStripMenuItem.Text = "Hint";
             this.hintToolStripMenuItem.Click += new System.EventHandler(this.hintToolStripMenuItem_Click);
             // 
@@ -522,71 +516,28 @@ namespace trickyTest2021
             // 
             this.pauseGameToolStripMenuItem.Name = "pauseGameToolStripMenuItem";
             this.pauseGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.pauseGameToolStripMenuItem.Text = "Pause Game";
+            this.pauseGameToolStripMenuItem.Click += new System.EventHandler(this.pauseGameToolStripMenuItem_Click);
             // 
             // exitGameToolStripMenuItem
             // 
             this.exitGameToolStripMenuItem.Name = "exitGameToolStripMenuItem";
             this.exitGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
-            // debugToolStripMenuItem
+            // clickyBtn
             // 
-            this.debugToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.level1ToolStripMenuItem,
-            this.level2ToolStripMenuItem,
-            this.level3ToolStripMenuItem,
-            this.level4ToolStripMenuItem,
-            this.level5ToolStripMenuItem,
-            this.level6ToolStripMenuItem});
-            this.debugToolStripMenuItem.Name = "debugToolStripMenuItem";
-            this.debugToolStripMenuItem.Size = new System.Drawing.Size(68, 24);
-            this.debugToolStripMenuItem.Text = "Debug";
-            // 
-            // level1ToolStripMenuItem
-            // 
-            this.level1ToolStripMenuItem.Name = "level1ToolStripMenuItem";
-            this.level1ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.level1ToolStripMenuItem.Text = "Level 1";
-            this.level1ToolStripMenuItem.Click += new System.EventHandler(this.level1ToolStripMenuItem_Click);
-            // 
-            // level2ToolStripMenuItem
-            // 
-            this.level2ToolStripMenuItem.Name = "level2ToolStripMenuItem";
-            this.level2ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.level2ToolStripMenuItem.Text = "Level 2";
-            this.level2ToolStripMenuItem.Click += new System.EventHandler(this.level2ToolStripMenuItem_Click);
-            // 
-            // level3ToolStripMenuItem
-            // 
-            this.level3ToolStripMenuItem.Name = "level3ToolStripMenuItem";
-            this.level3ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.level3ToolStripMenuItem.Text = "Level 3";
-            this.level3ToolStripMenuItem.Click += new System.EventHandler(this.level3ToolStripMenuItem_Click);
-            // 
-            // level4ToolStripMenuItem
-            // 
-            this.level4ToolStripMenuItem.Name = "level4ToolStripMenuItem";
-            this.level4ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.level4ToolStripMenuItem.Text = "Level 4";
-            this.level4ToolStripMenuItem.Click += new System.EventHandler(this.level4ToolStripMenuItem_Click);
-            // 
-            // level5ToolStripMenuItem
-            // 
-            this.level5ToolStripMenuItem.Name = "level5ToolStripMenuItem";
-            this.level5ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.level5ToolStripMenuItem.Text = "Level 5";
-            this.level5ToolStripMenuItem.Click += new System.EventHandler(this.level5ToolStripMenuItem_Click);
-            // 
-            // level6ToolStripMenuItem
-            // 
-            this.level6ToolStripMenuItem.Name = "level6ToolStripMenuItem";
-            this.level6ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.level6ToolStripMenuItem.Text = "Level 6";
-            this.level6ToolStripMenuItem.Click += new System.EventHandler(this.level6ToolStripMenuItem_Click);
+            this.clickyBtn.BackColor = System.Drawing.Color.Fuchsia;
+            this.clickyBtn.Location = new System.Drawing.Point(490, 334);
+            this.clickyBtn.Name = "clickyBtn";
+            this.clickyBtn.Size = new System.Drawing.Size(221, 102);
+            this.clickyBtn.TabIndex = 34;
+            this.clickyBtn.Text = "25";
+            this.clickyBtn.UseVisualStyleBackColor = false;
+            this.clickyBtn.Click += new System.EventHandler(this.clickyBtn_Click);
             // 
             // Form1
             // 
@@ -652,13 +603,7 @@ namespace trickyTest2021
         private System.Windows.Forms.Label hintsLbl;
         private System.Windows.Forms.Label hintsText;
         private System.Windows.Forms.Label findXLbl;
-        private System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem level1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem level2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem level3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem level4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem level5ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem level6ToolStripMenuItem;
+        private System.Windows.Forms.Button clickyBtn;
     }
 }
 
