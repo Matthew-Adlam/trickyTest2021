@@ -94,7 +94,8 @@ namespace trickyTest2021
         /// makes everything visible/invisible etc that is needed. this is called as a function to save space and time
         /// </summary>
         public void homeScreen()
-        {
+        { 
+
             animation = true;
             difficultyScreen = false;
             nameScreen = false;
@@ -133,6 +134,9 @@ namespace trickyTest2021
             submitBtn.Visible = false;
             findXLbl.Visible = false;
             clickyBtn.Visible = false;
+            picBox1Lbl.Visible = false;
+            picBox2Lbl.Visible = false;
+            picBox3Lbl.Visible = false;
 
             clearPanel();
             homeLbl.Text = "Tricky Test";
@@ -359,6 +363,10 @@ namespace trickyTest2021
             {
                 level6();
             }
+            else if(level == 7)
+            {
+                level7();
+            }
         }
 
         /// <summary>
@@ -366,7 +374,7 @@ namespace trickyTest2021
         /// </summary>
         private void exitGameToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            scoreTimer.Enabled = false;
+            scoreTimer.Enabled = false; // disables the timer
             // confirms exit, if yes is pressed closes the form
             string question = "Do you want to exit this game?";
             string title = "Exit Game";
@@ -475,6 +483,11 @@ namespace trickyTest2021
                 MessageBox.Show("Sorry, that is wrong.");
                 checkLives();
             }
+            else if(level == 7)
+            {
+                MessageBox.Show("Sorry, that is wrong.");
+                checkLives();
+            }
         }
 
         /// <summary>
@@ -487,6 +500,11 @@ namespace trickyTest2021
                 MessageBox.Show("Sorry, that is wrong.");
                 checkLives();
             }
+            else if (level == 7)
+            {
+                MessageBox.Show("Congratulations. You possess logic!");
+                endLevel();
+            }
         }
 
         /// <summary>
@@ -498,6 +516,11 @@ namespace trickyTest2021
             {
                 MessageBox.Show("Congratulations! The cloud is furtherest away from the word us.");
                 endLevel();
+            }
+            else if (level == 7)
+            {
+                MessageBox.Show("Sorry, that is wrong.");
+                checkLives();
             }
         }
 
@@ -613,6 +636,12 @@ namespace trickyTest2021
                 {
                     MessageBox.Show("No hint allowed for this level.");
                 }
+                else if(level == 7)
+                {
+                    MessageBox.Show("Try the first statement being true, and seeing if that works.");
+                    hints--;
+                    hintsLbl.Text = hints.ToString();
+                }
             }
             else
             {
@@ -724,6 +753,28 @@ namespace trickyTest2021
 
             clickyBtn.Text = clickBtnClicked.ToString();
             actualClickBtnClicked--;
+        }
+
+        public void level7()
+        {
+            clickyBtn.Visible = false;
+            submitBtn.Visible = false;
+            instructLbl.Visible = true;
+            instructLbl.Text = "There is a reward in one of the three boxes. \n If only one statement is true, where is the reward?";
+            picBox1.Image = Properties.Resources.box1;
+            picBox1.Visible = true;
+            picBox1Lbl.Visible = true;
+            picBox1Lbl.Text = "The reward is in this box.";
+            picBox2.Image = Properties.Resources.box2;
+            picBox2.Visible = true;
+            picBox2Lbl.Visible = true;
+            picBox2Lbl.Text = "The reward is not in this box.";
+            picBox3.Image = Properties.Resources.box3;
+            picBox3.Visible = true;
+            picBox3Lbl.Visible = true;
+            picBox3Lbl.Text = "The reward is not in box 1 (the top box).";
+
+            scoreTimer.Enabled = true;
         }
     }
 }
