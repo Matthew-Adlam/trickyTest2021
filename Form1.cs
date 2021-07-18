@@ -19,37 +19,45 @@ namespace trickyTest2021
             InitializeComponent();
         }
 
-        // variables decleration
+        // variables decleration. These are all the necessary variables that need to be declared here
 
         // home screen animation
         public bool animation = true;
+        // the different screens - correspond with the method
         public bool difficultyScreen = false;
         public bool nameScreen = false;
         public bool highScoreScreen = false;
+        // the difficulties
         public bool easy = false;
         public bool medium = false;
         public bool hard = false;
-        // current level
+        // current level, and hints
         public int level = 0;
         public int hints = 3;
-
+        // users name
         public string username = "";
-
+        // score, lives and the score gained per level(runs off timer)
         public int score = 0;
         public int lives = 5;
         public int scoreTime = 1000;
-
+        // not relevant at the moment
         public Random randomLvl = new Random();
         public int randomLvlInt = 0;
-
-        public int clickBtnClicked = 25; // both of these are for lvl 6
+        // both of these are for lvl 6
+        public int clickBtnClicked = 25; 
         public int actualClickBtnClicked = 25;
 
+        /// <summary>
+        /// upon load of the form
+        /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            homeScreen();
+            homeScreen(); // call homeScreen method
         }
 
+        /// <summary>
+        /// nothing yet
+        /// </summary>
         private void panelGame_Paint(object sender, PaintEventArgs e)
         {
 
@@ -59,17 +67,18 @@ namespace trickyTest2021
         /// </summary>
         private void panelGame_MouseMove(object sender, MouseEventArgs e)
         {
-            if(animation == true)
+            if(animation == true) // if the current screen allows animation
             {
+                // declares two random variables, one for colour and one for size
                 Random colorRnd = new Random();
                 Random sizeRnd = new Random();
-                int size = 50;
-                size = sizeRnd.Next(5, 15);
-                Color randColor = Color.FromArgb(colorRnd.Next(256), colorRnd.Next(256), colorRnd.Next(256));
-                Graphics homeScreen = panelGame.CreateGraphics();
-                Pen pen1 = new Pen(randColor, 2);
-                SolidBrush br = new SolidBrush(randColor);
-                homeScreen.FillEllipse(br, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size);
+                int size = sizeRnd.Next(5, 15); // declares size as the random output
+                Color randColor = Color.FromArgb(colorRnd.Next(256), colorRnd.Next(256), colorRnd.Next(256)); // makes the random colour based off colorRnd
+                Graphics homeScreen = panelGame.CreateGraphics(); // declare graphics
+                Pen pen1 = new Pen(randColor, 2); // make pen
+                SolidBrush br = new SolidBrush(randColor); // make brush
+                // draw the ellipse off the parameters: brush/pen, mouse position give or take sizeRnd, and the size
+                homeScreen.FillEllipse(br, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size); 
                 homeScreen.DrawEllipse(pen1, e.X + sizeRnd.Next(-10, 10), e.Y + sizeRnd.Next(-10, 10), size, size);
 
             }
@@ -80,11 +89,11 @@ namespace trickyTest2021
         private void exitBtn_Click(object sender, EventArgs e)
         {
             // confirms exit, if yes is pressed closes the form
-            string question = "Do you want to exit this game?";
-            string title = "Exit Program";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(question, title, buttons);
-            if (result == DialogResult.Yes)
+            string question = "Do you want to exit this game?"; // make a string
+            string title = "Exit Program"; // make another string
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo; // declare messagebox buttons as yes/no
+            DialogResult result = MessageBox.Show(question, title, buttons); // show the result with the buttons, the title and the question
+            if (result == DialogResult.Yes) // if user types yes, exit the application
             {
                 Application.Exit();
             }
@@ -138,27 +147,36 @@ namespace trickyTest2021
             picBox2Lbl.Visible = false;
             picBox3Lbl.Visible = false;
 
-            clearPanel();
-            homeLbl.Text = "Tricky Test";
-            this.ActiveControl = startBtn;
+            clearPanel(); // clear panel
+            homeLbl.Text = "Tricky Test"; // set the text
+            this.ActiveControl = startBtn; // set active control to startBtn
         }
 
+        /// <summary>
+        /// when start button is clicked
+        /// </summary>
         private void startBtn_Click(object sender, EventArgs e)
         {
-            goToDifficultyScreen();
+            goToDifficultyScreen(); // call the method for displaying the difficulty menu
         }
 
+        /// <summary>
+        /// when clearPanel is called, refresh the panel
+        /// </summary>
         public void clearPanel()
         {
             panelGame.Refresh();
         }
 
+        /// <summary>
+        /// the method called at the difficulty screen. this makes everything visible/invisible that needs to be
+        /// </summary>
         public void goToDifficultyScreen()
         {
-            animation = false;
-            difficultyScreen = true;
-            nameScreen = false;
-            clearPanel();
+            animation = false; // disables the animation 
+            difficultyScreen = true; // difficulty screen is set to true
+            nameScreen = false; // but its not name screen
+            clearPanel(); // clear panel
 
             exitBtn.Visible = false;
             instructBtn.Visible = false;
@@ -173,6 +191,9 @@ namespace trickyTest2021
             backBtn.Visible = true;
         }
 
+        /// <summary>
+        /// upon click of back button, checks what screen it is on, and then go back to the correct previous screen
+        /// </summary>
         public void back()
         {
             if(difficultyScreen == true)
@@ -189,11 +210,17 @@ namespace trickyTest2021
             }
         }
 
+        /// <summary>
+        /// call the back method upon click of back button
+        /// </summary>
         private void backBtn_Click(object sender, EventArgs e)
         {
             back();
         }
 
+        /// <summary>
+        /// upon a difficulty button being pressed, go to the username input screen - makes elements visible/invisible
+        /// </summary>
         public void difficultyBtnPressed()
         {
             easyBtn.Visible = false;
@@ -206,39 +233,54 @@ namespace trickyTest2021
             homeLbl.Text = "What is your username?";
         }
 
+        /// <summary>
+        /// upon the easy difficulty button being clicked
+        /// </summary>
         private void easyBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Difficulty set to Easy");
-            lives = 5;
-            hints = 3;
-            difficultyBtnPressed();
+            MessageBox.Show("Difficulty set to Easy"); // display message to user
+            lives = 5; // set lives to 5 because its easy
+            hints = 3; // give user 3 hints
+            difficultyBtnPressed(); // call above method
+            // set easy to true and others to false
             easy = true;
             medium = false;
             hard = false;
         }
 
+        /// <summary>
+        /// upon the medium difficulty button being clicked
+        /// </summary>
         private void mediumBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Difficulty set to Medium");
-            lives = 3;
-            hints = 2;
-            difficultyBtnPressed();
+            MessageBox.Show("Difficulty set to Medium"); // display message to user
+            lives = 3; // set lives to 3 because its medium
+            hints = 2; // give user 2 hints
+            difficultyBtnPressed(); // call above method
+            // set medium to true and others to false
             easy = false;
             medium = true;
             hard = false;
         }
 
+        /// <summary>
+        /// upon the hard difficulty button being clicked
+        /// </summary>
         private void hardBtn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Difficulty set to Hard");
-            lives = 1;
-            hints = 1;
-            difficultyBtnPressed();
+            MessageBox.Show("Difficulty set to Hard"); // display message to user
+            lives = 1; // set lives to 1 because its hard
+            hints = 1; // give user 1 hint
+            difficultyBtnPressed(); // call above method
+            // set hard to true and others to false
             easy = false;
             medium = false;
             hard = true;
         }
 
+        /// <summary>
+        /// when the text in the username is changed
+        /// </summary>
         private void usernameInput_TextChanged(object sender, EventArgs e)
         {
             // sets string text to the bet text box
@@ -247,7 +289,7 @@ namespace trickyTest2021
             if (text.Trim() == "") return;
             for (int i = 0; i < text.Length; i++)
             {
-                // if not a number, not let it through
+                // if not a letter, not let it through
                 if (!char.IsLetter(text[i]))
                 {
                     MessageBox.Show("Please enter a valid username, one with only letters");
@@ -256,24 +298,28 @@ namespace trickyTest2021
                 }
 
             }
-            username = usernameInput.Text;
+            username = usernameInput.Text; // set username to the text box's text
         }
 
+        /// <summary>
+        /// when the game starts, and the user has a valid username, start the game
+        /// </summary>
         private void startGame_Click(object sender, EventArgs e)
         {
-            if(usernameInput.Text != "")
+            if(usernameInput.Text != "") // if username is not null,
             {
-                level = 1;
-                score = 0;
+                level = 1; // make the level 1
+                score = 0; // set score to 0
+
+                // make these controls invisible
                 usernameInput.Visible = false;
                 startGame.Visible = false;
                 backBtn.Visible = false;
-                levelLbl.Visible = true;
                 homeLbl.Visible = false;
 
-                Thread.Sleep(250);
+                Thread.Sleep(250); // wait 1/4 of a second, give user time to get ready
 
-                levelLbl.Visible = false;
+                // make these controls visible
                 scoreTimer.Enabled = true;
                 pauseMenu.Visible = true;
                 livesLbl.Visible = true;
@@ -285,11 +331,13 @@ namespace trickyTest2021
                 hintsLbl.Visible = true;
                 hintsText.Visible = true;
                 instructLbl.Visible = true;
+                // update the lives, score, level and hints and display them
                 livesLbl.Text = lives.ToString();
                 scoreLbl.Text = score.ToString();
                 levelLabel.Text = level.ToString();
                 hintsLbl.Text = hints.ToString();
 
+                // start level 1 if it is level 1
                 if (level == 1)
                 {
                     level1();
@@ -297,7 +345,7 @@ namespace trickyTest2021
             }
             else
             {
-                MessageBox.Show("Please enter a username.");
+                MessageBox.Show("Please enter a username."); // if username is null
             }
            
         }
@@ -306,9 +354,10 @@ namespace trickyTest2021
         /// </summary>
         public void level1()
         {
-            level = 1;
-            scoreTimer.Interval = 30;
-            instructLbl.Text = "Which is the furtherest away from us?";
+            level = 1; // set level to 1
+            scoreTimer.Interval = 30; // timer interval 30 ms
+            instructLbl.Text = "Which is the furtherest away from us?"; // set text
+            // make the picture boxes visible and displaying their respective images
             picBox1.Visible = true;
             picBox1.Image = Properties.Resources.sun;
             picBox2.Visible = true;
@@ -330,18 +379,19 @@ namespace trickyTest2021
         }
 
         /// <summary>
-        /// ends the level by stopping the timer
+        /// ends the level by stopping the timer, moves on to the next level, displays new score and level, resets timer
         /// </summary>
         public void endLevel()
         {
-            scoreTimer.Enabled = false;
-            clearPanel();
-            score += scoreTime;
-            scoreLbl.Text = score.ToString();
-            scoreTime = 1000;
-            level++;
-            levelLabel.Text = level.ToString();
+            scoreTimer.Enabled = false; // stop timer
+            clearPanel(); // clear panel
+            score += scoreTime; // add new score to total
+            scoreLbl.Text = score.ToString(); // display score
+            scoreTime = 1000; // reset scoreTime
+            level++; // next level
+            levelLabel.Text = level.ToString(); // display level
 
+            // move on to next level, call corresponding method
             if (level == 2)
             {
                 level2();
@@ -398,7 +448,7 @@ namespace trickyTest2021
             MessageBox.Show("Welcome to Tricky Test. This game will challenge all aspects of your thinking, strategy and skill.");
             MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1. \n The levels get longer as they go. Be ready.");
             MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play. \n Note: Your score is determined by how many levels you complete and how fast you complete them.");
-            MessageBox.Show("Click the ingame menu to access hints, pause the game or exit. \n Number of hints will be determined based on difficulty. \n Feel free to post an issue in the repository if you think the hints make it too easy or are not good enough.");
+            MessageBox.Show("Click the ingame menu to access hints, pause the game or exit. \n Number of hints will be determined based on difficulty. \n Feel free to post an issue in the repository if you think the hints make it too easy or are not good enough, or if you have any other suggestions/feedback regarding this.");
         }
 
         /// <summary>

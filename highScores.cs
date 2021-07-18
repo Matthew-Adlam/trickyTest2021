@@ -18,7 +18,7 @@ namespace trickyTest2021
         /// <param name="username"> the users name </param>
         public void updateHighScores(int score, string username)
         {
-            // declares necessary variables
+            // declares necessary variables, a reader and a writer
             homeLbl.Text = "High Scores";
             StreamWriter writer;
             StreamReader reader;
@@ -88,24 +88,29 @@ namespace trickyTest2021
                 counter++;
 
             }
-            reader.Close();
+            reader.Close(); // close the reader
 
+            // sets the highScores list to only contain the top 10 in that list
             highScores = highScores.OrderByDescending(x => x.Item2).Take(10).ToList();
 
-            listBoxHighScores.Items.Clear();
-            foreach (var (name, score2) in highScores)
+            listBoxHighScores.Items.Clear(); // clear the listbox before inputting the new high scores
+
+            foreach (var (name, score2) in highScores) // for each instance of a name with its corresponding score in high scores
             {
-                listBoxHighScores.Items.Add(name.PadRight(10) + score2);
+                listBoxHighScores.Items.Add(name.PadRight(10) + score2); // add to listbox
             }
 
-            displayHighScores();
+            displayHighScores(); // call method
 
         }
+        /// <summary>
+        /// display the high scores
+        /// </summary>
         public void displayHighScores()
         {
-            clearPanel();
+            clearPanel(); // clear the panel
             //panelGame.Visible = false;
-            listBoxHighScores.Visible = true;
+            listBoxHighScores.Visible = true; // make listbox visible
             
         }
 

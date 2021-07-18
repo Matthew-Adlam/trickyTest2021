@@ -19,19 +19,19 @@ namespace trickyTest2021
         /// </summary>
         public void checkLives()
         {
-            // decreases lives by 1
+            // decreases lives by 1, and displays it
             lives--;
             livesLbl.Text = lives.ToString();
 
-            if (lives <= 0)
+            if (lives <= 0) // if user runs out of lives
             {
-                endGameScreen();
+                endGameScreen(); // call method
             }
-            else if (level == 5)
+            else if (level == 5) // if they lose a life on level 5, call the drawBalls method so the user can try again
             {
                 drawBalls();
             }
-            else if (level == 6)
+            else if (level == 6) // if they lose a life on level 6, set the button actual and fake click variables to 25, and display the fake one
             {
                 clickBtnClicked = 25;
                 actualClickBtnClicked = 25;
@@ -39,11 +39,15 @@ namespace trickyTest2021
             }
         }
 
+
+        /// <summary>
+        /// when the user loses all their lives, this method is run
+        /// </summary>
         public void endGameScreen()
         {
-            MessageBox.Show("Sorry, you have run out of lives.");
-            updateHighScores(score, username);
-            homeScreen();
+            MessageBox.Show("Sorry, you have run out of lives."); // give user a message
+            updateHighScores(score, username); // update the high scores
+            homeScreen(); // call the homeScreen method, which displays the starting screen again
         }
     }
 }
