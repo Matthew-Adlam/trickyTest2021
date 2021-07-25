@@ -478,7 +478,7 @@ namespace trickyTest2021
             easy = true;
             medium = false;
             hard = false;
-            updateHighScores(score, username);
+            updateHighScores(score, username); // call method
         }
 
         /// <summary>
@@ -492,7 +492,7 @@ namespace trickyTest2021
             easy = false;
             medium = true;
             hard = false;
-            updateHighScores(score, username);
+            updateHighScores(score, username); // call method
         }
 
         /// <summary>
@@ -506,10 +506,10 @@ namespace trickyTest2021
             easy = false;
             medium = false;
             hard = true;
-            updateHighScores(score, username);
+            updateHighScores(score, username); // call method
         }
         /// <summary>
-        /// the base code to set up level 2
+        /// the base code to set up level 2, i.e. displaying the right elements, giving the user instructions and changing the timer interval
         /// </summary>
         public void level2()
         {
@@ -520,11 +520,11 @@ namespace trickyTest2021
             textBox1.Visible = true;
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
-            scoreTimer.Interval = 35;
+            scoreTimer.Interval = 35; // set the timer interval higher, meaning scores are higher for this round
         }
 
         /// <summary>
-        /// if the sun is selected, return wrong
+        /// upon click of the picture box, it acts differently based on level, in this case picBox1 is incorrect for levels 1 and 7
         /// </summary>
         private void picBox1_Click(object sender, EventArgs e)
         {
@@ -541,7 +541,7 @@ namespace trickyTest2021
         }
 
         /// <summary>
-        /// if the moon is selected, return wrong
+        /// upon click of the picture box, it acts differently based on level, in this case picBox2 is incorrect for level 1, but correct for level 7
         /// </summary>
         private void picBox2_Click(object sender, EventArgs e)
         {
@@ -558,7 +558,7 @@ namespace trickyTest2021
         }
 
         /// <summary>
-        /// if the cloud is selected, return correct
+        /// upon click of the picture box, it acts differently based on level, in this case picBox3 is correct for level 1, but incorrect for level 7
         /// </summary>
         private void picBox3_Click(object sender, EventArgs e)
         {
@@ -575,7 +575,7 @@ namespace trickyTest2021
         }
 
         /// <summary>
-        /// the submit button for level 2 and 3
+        /// the submit button for several levels. If the text in the text box matches what it is supposed to, return correct and move on the levels. If it doesn't match, return incorrect and lose a life
         /// </summary>
         private void submitBtn_Click(object sender, EventArgs e)
         {
@@ -593,7 +593,7 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
-
+            // if level 3, check for the user putting 91 or any sensible variation
             else if (level == 3)
             {
                 if (textBox1.Text == "91" || textBox1.Text == "91st")
@@ -607,10 +607,12 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
+            // if level 4, return incorrect as the user has to click on the x
             else if (level == 4)
             {
                 MessageBox.Show("Sorry, that is wrong.");
             }
+            // if it matches the correct amount of pink balls
             else if (level == 5)
             {
                 if(textBox1.Text == pinkBalls.ToString())
@@ -624,6 +626,7 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
+            // if the user has actually clicked on the button 25 times, regardless of what the button displays
             else if(level == 6)
             {
                 if(actualClickBtnClicked == 0)
@@ -656,13 +659,14 @@ namespace trickyTest2021
         /// </summary>
         private void hintToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(hints > 0)
+            if(hints > 0) // if user has hints remaining
             {
+                // same format for most levels(displayed by level 1)
                 if (level == 1)
                 {
-                    MessageBox.Show("What do you think I mean by us?");
-                    hints--;
-                    hintsLbl.Text = hints.ToString();
+                    MessageBox.Show("What do you think I mean by us?"); // give the hint
+                    hints--; // take 1 hint away
+                    hintsLbl.Text = hints.ToString(); // display new number of hints
                 }
                 else if (level == 2)
                 {
@@ -682,7 +686,7 @@ namespace trickyTest2021
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
-                else if (level == 5 || level == 6)
+                else if (level == 5 || level == 6) // doesnt take hints away, as hints are kind of useless or spoil these levels
                 {
                     MessageBox.Show("No hint allowed for this level.");
                 }
@@ -713,16 +717,19 @@ namespace trickyTest2021
             textBox1.Text = "";
 
             findXLbl.Visible = true;
-            findXLbl.Text = "x^9 + 8x^4 - 2x^7 + 3x^3 + 4x - 123 = 0";
+            findXLbl.Text = "x^6 + 8x^4 - 2x^2 + 4x - (123*8x)-5x = 0"; // set it to such a ridiculous equation
         }
 
+        /// <summary>
+        /// if the instruction label, which displays "Quick, find x" at the time, is clicked on, the user found x, so move on to level 5
+        /// </summary>
         private void instructLbl_Click(object sender, EventArgs e)
         {
             if (level == 4)
             {
                 MessageBox.Show("Nice! You found x!");
                 endLevel();
-                instructLbl.Text = "How many pink circles were there?";
+                // instructLbl.Text = "How many pink circles were there?";
 
             }
         }
@@ -742,13 +749,13 @@ namespace trickyTest2021
             hintsText.Visible = false;
             hintsLbl.Visible = false;
 
-            Thread.Sleep(400);
+            Thread.Sleep(400); // pause the screen for 400ms
 
             submitBtn.Visible = false;
             textBox1.Text = "";
             textBox1.Visible = false;
             findXLbl.Visible = false;
-            drawBalls();
+            drawBalls(); // call drawBalls method in the drawBalls.cs class
         }
 
         /// <summary>
@@ -772,49 +779,55 @@ namespace trickyTest2021
         /// </summary>
         private void pauseGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            scoreTimer.Enabled = false;
+            scoreTimer.Enabled = false; // pause timer
 
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
-            string msg = "The game is paused. Press OK to unpause the game.";
-            string title = "Paused";
-            DialogResult result = MessageBox.Show(msg, title, buttons);
+            MessageBoxButtons buttons = MessageBoxButtons.OK; // set buttons to OK
+            string msg = "The game is paused. Press OK to unpause the game."; // declare msg string
+            string title = "Paused"; // declare title
+            DialogResult result = MessageBox.Show(msg, title, buttons); // display msg box
 
-            if(result == DialogResult.OK)
+            if(result == DialogResult.OK) // if OK pressed, resume
             {
                 scoreTimer.Enabled = true;
             }
 
         }
 
+        /// <summary>
+        /// the click button for level 6, upon click each time it has a slight chance to offset the number that the button displays, which is how the user is tested
+        /// </summary>
         private void clickyBtn_Click(object sender, EventArgs e)
         {
-            Random rand = new Random();
+            Random rand = new Random(); // make a random
             int offset = rand.Next(-2, 3); // the offset to the buttons number
             int chance = rand.Next(1, 11); // the chance for offset to happen
 
-            if(chance == 1)
+            if(chance == 1) // a 1/10 chance
             {
-                clickBtnClicked += offset;
+                clickBtnClicked += offset; // offset the fake number of clicks
             }
             else
             {
-                clickBtnClicked--;
+                clickBtnClicked--; // decrease fake number normally
             }
 
-            clickyBtn.Text = clickBtnClicked.ToString();
-            actualClickBtnClicked--;
+            clickyBtn.Text = clickBtnClicked.ToString(); // display FAKE number
+            actualClickBtnClicked--; // regardless of offset, decrease actual number normally
         }
 
+        /// <summary>
+        /// the base code necessary to start level 7
+        /// </summary>
         public void level7()
         {
             clickyBtn.Visible = false;
             submitBtn.Visible = false;
             instructLbl.Visible = true;
             instructLbl.Text = "There is a reward in one of the three boxes. \n If only one statement is true, where is the reward?";
-            picBox1.Image = Properties.Resources.box1;
-            picBox1.Visible = true;
-            picBox1Lbl.Visible = true;
-            picBox1Lbl.Text = "The reward is in this box.";
+            picBox1.Image = Properties.Resources.box1; // set the image
+            picBox1.Visible = true; // make it visible
+            picBox1Lbl.Visible = true; // make the message visible
+            picBox1Lbl.Text = "The reward is in this box."; // set the associated message
             picBox2.Image = Properties.Resources.box2;
             picBox2.Visible = true;
             picBox2Lbl.Visible = true;
