@@ -355,7 +355,7 @@ namespace trickyTest2021
         public void level1()
         {
             level = 1; // set level to 1
-            scoreTimer.Interval = 30; // timer interval 30 ms
+            scoreTimer.Interval = 35; // timer interval 35 ms
             instructLbl.Text = "Which is the furtherest away from us?"; // set text
             // make the picture boxes visible and displaying their respective images
             picBox1.Visible = true;
@@ -520,7 +520,7 @@ namespace trickyTest2021
             textBox1.Visible = true;
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
-            scoreTimer.Interval = 35; // set the timer interval higher, meaning scores are higher for this round
+            scoreTimer.Interval = 35; // set the timer interval 
         }
 
         /// <summary>
@@ -528,12 +528,7 @@ namespace trickyTest2021
         /// </summary>
         private void picBox1_Click(object sender, EventArgs e)
         {
-            if(level == 1)
-            {
-                MessageBox.Show("Sorry, that is wrong.");
-                checkLives();
-            }
-            else if(level == 7)
+            if(level == 1 || level == 7)
             {
                 MessageBox.Show("Sorry, that is wrong.");
                 checkLives();
@@ -652,6 +647,7 @@ namespace trickyTest2021
             textBox1.Text = "";
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
+            scoreTimer.Interval = 35; // set the timer interval 
         }
 
         /// <summary>
@@ -712,7 +708,7 @@ namespace trickyTest2021
             instructLbl.Text = "Quick, find x";
             submitBtn.Visible = true;
             scoreTimer.Enabled = true;
-            scoreTimer.Interval = 35;
+            scoreTimer.Interval = 38; // make the interval higher
             textBox1.Visible = true;
             textBox1.Text = "";
 
@@ -771,7 +767,7 @@ namespace trickyTest2021
             scoreTimer.Enabled = true;
             clickyBtn.Visible = true;
 
-            scoreTimer.Interval = 32; // make it a little harder to earn points
+            scoreTimer.Interval = 34; // make it a little harder to earn points
         }
 
         /// <summary>
@@ -802,7 +798,7 @@ namespace trickyTest2021
             int offset = rand.Next(-2, 3); // the offset to the buttons number
             int chance = rand.Next(1, 11); // the chance for offset to happen
 
-            if(chance == 1) // a 1/10 chance
+            if(chance == 1) // a 1/10 chance, as .Next works that maxValue is exclusive, but minValue is inclusive
             {
                 clickBtnClicked += offset; // offset the fake number of clicks
             }
@@ -820,6 +816,7 @@ namespace trickyTest2021
         /// </summary>
         public void level7()
         {
+            scoreTimer.Interval = 28; // set the timer interval 
             clickyBtn.Visible = false;
             submitBtn.Visible = false;
             instructLbl.Visible = true;
