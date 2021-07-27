@@ -301,6 +301,7 @@ namespace trickyTest2021
             username = usernameInput.Text; // set username to the text box's text
         }
 
+
         /// <summary>
         /// when the game starts, and the user has a valid username, start the game
         /// </summary>
@@ -416,6 +417,10 @@ namespace trickyTest2021
             else if(level == 7)
             {
                 level7();
+            }
+            else if(level == 8)
+            {
+                level8();
             }
         }
 
@@ -835,6 +840,13 @@ namespace trickyTest2021
             picBox3Lbl.Text = "The reward is not in box 1 (the top box).";
 
             scoreTimer.Enabled = true;
+        }
+
+        public void level8()
+        {
+            picBox1.Visible = false;
+            picBox2.Visible = false;
+            picBox3.Visible = false;
         }
     }
 }
