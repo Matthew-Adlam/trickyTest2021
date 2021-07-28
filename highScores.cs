@@ -109,9 +109,12 @@ namespace trickyTest2021
         public void displayHighScores()
         {
             clearPanel(); // clear the panel
-            //panelGame.Visible = false;
-            listBoxHighScores.Visible = true; // make listbox visible
-            
+                          //panelGame.Visible = false;
+            if (highScoreScreen == true)
+            {
+                listBoxHighScores.Visible = true;
+            } // make listbox visible
+
         }
 
     }

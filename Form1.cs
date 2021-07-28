@@ -438,7 +438,9 @@ namespace trickyTest2021
             DialogResult result = MessageBox.Show(question, title, buttons);
             if (result == DialogResult.Yes)
             {
+                highScoreScreen = false;
                 homeScreen();
+                updateHighScores(score, username);
             }
             else if(result == DialogResult.No)
             {
@@ -702,7 +704,7 @@ namespace trickyTest2021
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
-                else if (level == 5 || level == 6) // doesnt take hints away, as hints are kind of useless or spoil these levels
+                else if (level == 5 || level == 6 || level == 8) // doesnt take hints away, as hints are kind of useless or spoil these levels
                 {
                     MessageBox.Show("No hint allowed for this level.");
                 }
