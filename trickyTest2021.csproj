@@ -58,11 +58,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="highScores.cs" />
+    <Compile Include="highScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="levels.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="lives.cs" />
+    <Compile Include="lives.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -120,6 +124,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\box.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shirt.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

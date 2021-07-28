@@ -53,6 +53,7 @@ namespace trickyTest2021
         private void Form1_Load(object sender, EventArgs e)
         {
             homeScreen(); // call homeScreen method
+
         }
 
         /// <summary>
@@ -60,7 +61,6 @@ namespace trickyTest2021
         /// </summary>
         private void panelGame_Paint(object sender, PaintEventArgs e)
         {
-
         }
         /// <summary>
         /// The home screen animations, only work if user is not in game, i.e. on home screen
@@ -103,8 +103,8 @@ namespace trickyTest2021
         /// makes everything visible/invisible etc that is needed. this is called as a function to save space and time
         /// </summary>
         public void homeScreen()
-        { 
-
+        {
+            clearPanel();
             animation = true;
             difficultyScreen = false;
             nameScreen = false;
@@ -138,6 +138,7 @@ namespace trickyTest2021
             picBox1.Visible = false;
             picBox2.Visible = false;
             picBox3.Visible = false;
+            picBox4.Visible = false;
             instructLbl.Visible = false;
             textBox1.Visible = false;
             submitBtn.Visible = false;
@@ -461,6 +462,7 @@ namespace trickyTest2021
         /// </summary>
         private void highScoresBtn_Click(object sender, EventArgs e)
         {
+            clearPanel();
             easyHighScoreBtn.Visible = true;
             mediumHighScoreBtn.Visible = true;
             hardHighScoreBtn.Visible = true;
@@ -637,6 +639,19 @@ namespace trickyTest2021
                 else
                 {
                     MessageBox.Show("Sorry, that is wrong. The clicks have been reset.");
+                    checkLives();
+                }
+            }
+            else if(level == 8)
+            {
+                if(textBox1.Text == "6")
+                {
+                    MessageBox.Show("Well done! Two sleves, the neck hole, the bottom, and TWO in the center hole.");
+                    endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong.");
                     checkLives();
                 }
             }
@@ -842,11 +857,26 @@ namespace trickyTest2021
             scoreTimer.Enabled = true;
         }
 
+        /// <summary>
+        /// the base code necessary to start level 8
+        /// </summary>
         public void level8()
         {
             picBox1.Visible = false;
             picBox2.Visible = false;
             picBox3.Visible = false;
+            picBox4.Visible = true;
+            picBox1Lbl.Visible = false;
+            picBox2Lbl.Visible = false;
+            picBox3Lbl.Visible = false;
+            submitBtn.Visible = true;
+            textBox1.Visible = true;
+            textBox1.Text = "";
+            instructLbl.Visible = true;
+            instructLbl.Text = "How many holes in this shirt?";
+            scoreTimer.Interval = 24; // super fast
+            scoreTimer.Enabled = true;
+            picBox4.BackgroundImage = Properties.Resources.shirt;
         }
     }
 }

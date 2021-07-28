@@ -31,6 +31,9 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.picBox3Lbl = new System.Windows.Forms.Label();
+            this.picBox2Lbl = new System.Windows.Forms.Label();
+            this.picBox1Lbl = new System.Windows.Forms.Label();
             this.clickyBtn = new System.Windows.Forms.Button();
             this.findXLbl = new System.Windows.Forms.Label();
             this.hintsLbl = new System.Windows.Forms.Label();
@@ -40,6 +43,9 @@ namespace trickyTest2021
             this.levelLabel = new System.Windows.Forms.Label();
             this.levelText = new System.Windows.Forms.Label();
             this.instructLbl = new System.Windows.Forms.Label();
+            this.picBox3 = new System.Windows.Forms.PictureBox();
+            this.picBox2 = new System.Windows.Forms.PictureBox();
+            this.picBox1 = new System.Windows.Forms.PictureBox();
             this.hardHighScoreBtn = new System.Windows.Forms.Button();
             this.mediumHighScoreBtn = new System.Windows.Forms.Button();
             this.easyHighScoreBtn = new System.Windows.Forms.Button();
@@ -67,22 +73,19 @@ namespace trickyTest2021
             this.hintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picBox1Lbl = new System.Windows.Forms.Label();
-            this.picBox2Lbl = new System.Windows.Forms.Label();
-            this.picBox3Lbl = new System.Windows.Forms.Label();
-            this.picBox3 = new System.Windows.Forms.PictureBox();
-            this.picBox2 = new System.Windows.Forms.PictureBox();
-            this.picBox1 = new System.Windows.Forms.PictureBox();
+            this.picBox4 = new System.Windows.Forms.PictureBox();
             this.panelGame.SuspendLayout();
-            this.pauseMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
+            this.pauseMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGame
             // 
             this.panelGame.BackColor = System.Drawing.Color.White;
+            this.panelGame.Controls.Add(this.picBox4);
             this.panelGame.Controls.Add(this.picBox3Lbl);
             this.panelGame.Controls.Add(this.picBox2Lbl);
             this.panelGame.Controls.Add(this.picBox1Lbl);
@@ -126,6 +129,36 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // picBox3Lbl
+            // 
+            this.picBox3Lbl.AutoSize = true;
+            this.picBox3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picBox3Lbl.Location = new System.Drawing.Point(750, 569);
+            this.picBox3Lbl.Name = "picBox3Lbl";
+            this.picBox3Lbl.Size = new System.Drawing.Size(26, 29);
+            this.picBox3Lbl.TabIndex = 37;
+            this.picBox3Lbl.Text = "a";
+            // 
+            // picBox2Lbl
+            // 
+            this.picBox2Lbl.AutoSize = true;
+            this.picBox2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picBox2Lbl.Location = new System.Drawing.Point(750, 369);
+            this.picBox2Lbl.Name = "picBox2Lbl";
+            this.picBox2Lbl.Size = new System.Drawing.Size(26, 29);
+            this.picBox2Lbl.TabIndex = 36;
+            this.picBox2Lbl.Text = "a";
+            // 
+            // picBox1Lbl
+            // 
+            this.picBox1Lbl.AutoSize = true;
+            this.picBox1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.picBox1Lbl.Location = new System.Drawing.Point(750, 199);
+            this.picBox1Lbl.Name = "picBox1Lbl";
+            this.picBox1Lbl.Size = new System.Drawing.Size(26, 29);
+            this.picBox1Lbl.TabIndex = 35;
+            this.picBox1Lbl.Text = "a";
             // 
             // clickyBtn
             // 
@@ -215,12 +248,48 @@ namespace trickyTest2021
             // 
             this.instructLbl.AutoSize = true;
             this.instructLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructLbl.Location = new System.Drawing.Point(305, 44);
+            this.instructLbl.Location = new System.Drawing.Point(303, 33);
             this.instructLbl.Name = "instructLbl";
-            this.instructLbl.Size = new System.Drawing.Size(109, 39);
+            this.instructLbl.Size = new System.Drawing.Size(103, 38);
             this.instructLbl.TabIndex = 25;
             this.instructLbl.Text = "label1";
             this.instructLbl.Click += new System.EventHandler(this.instructLbl_Click);
+            // 
+            // picBox3
+            // 
+            this.picBox3.BackColor = System.Drawing.Color.Transparent;
+            this.picBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBox3.Location = new System.Drawing.Point(461, 501);
+            this.picBox3.Name = "picBox3";
+            this.picBox3.Size = new System.Drawing.Size(269, 132);
+            this.picBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox3.TabIndex = 24;
+            this.picBox3.TabStop = false;
+            this.picBox3.Click += new System.EventHandler(this.picBox3_Click);
+            // 
+            // picBox2
+            // 
+            this.picBox2.BackColor = System.Drawing.Color.Transparent;
+            this.picBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picBox2.Location = new System.Drawing.Point(461, 327);
+            this.picBox2.Name = "picBox2";
+            this.picBox2.Size = new System.Drawing.Size(269, 132);
+            this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox2.TabIndex = 23;
+            this.picBox2.TabStop = false;
+            this.picBox2.Click += new System.EventHandler(this.picBox2_Click);
+            // 
+            // picBox1
+            // 
+            this.picBox1.BackColor = System.Drawing.Color.Transparent;
+            this.picBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picBox1.Location = new System.Drawing.Point(461, 158);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(269, 132);
+            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox1.TabIndex = 22;
+            this.picBox1.TabStop = false;
+            this.picBox1.Click += new System.EventHandler(this.picBox1_Click);
             // 
             // hardHighScoreBtn
             // 
@@ -476,7 +545,7 @@ namespace trickyTest2021
             this.menuToolStripMenuItem});
             this.pauseMenu.Location = new System.Drawing.Point(0, 0);
             this.pauseMenu.Name = "pauseMenu";
-            this.pauseMenu.Size = new System.Drawing.Size(1332, 30);
+            this.pauseMenu.Size = new System.Drawing.Size(1332, 28);
             this.pauseMenu.TabIndex = 1;
             this.pauseMenu.Text = "menuStrip1";
             // 
@@ -488,7 +557,7 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 26);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // hintToolStripMenuItem
@@ -515,71 +584,15 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
-            // picBox1Lbl
+            // picBox4
             // 
-            this.picBox1Lbl.AutoSize = true;
-            this.picBox1Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.picBox1Lbl.Location = new System.Drawing.Point(750, 199);
-            this.picBox1Lbl.Name = "picBox1Lbl";
-            this.picBox1Lbl.Size = new System.Drawing.Size(26, 29);
-            this.picBox1Lbl.TabIndex = 35;
-            this.picBox1Lbl.Text = "a";
-            // 
-            // picBox2Lbl
-            // 
-            this.picBox2Lbl.AutoSize = true;
-            this.picBox2Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.picBox2Lbl.Location = new System.Drawing.Point(750, 369);
-            this.picBox2Lbl.Name = "picBox2Lbl";
-            this.picBox2Lbl.Size = new System.Drawing.Size(26, 29);
-            this.picBox2Lbl.TabIndex = 36;
-            this.picBox2Lbl.Text = "a";
-            // 
-            // picBox3Lbl
-            // 
-            this.picBox3Lbl.AutoSize = true;
-            this.picBox3Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.picBox3Lbl.Location = new System.Drawing.Point(750, 569);
-            this.picBox3Lbl.Name = "picBox3Lbl";
-            this.picBox3Lbl.Size = new System.Drawing.Size(26, 29);
-            this.picBox3Lbl.TabIndex = 37;
-            this.picBox3Lbl.Text = "a";
-            // 
-            // picBox3
-            // 
-            this.picBox3.BackColor = System.Drawing.Color.Transparent;
-            this.picBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBox3.Location = new System.Drawing.Point(461, 501);
-            this.picBox3.Name = "picBox3";
-            this.picBox3.Size = new System.Drawing.Size(269, 132);
-            this.picBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox3.TabIndex = 24;
-            this.picBox3.TabStop = false;
-            this.picBox3.Click += new System.EventHandler(this.picBox3_Click);
-            // 
-            // picBox2
-            // 
-            this.picBox2.BackColor = System.Drawing.Color.Transparent;
-            this.picBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picBox2.Location = new System.Drawing.Point(461, 327);
-            this.picBox2.Name = "picBox2";
-            this.picBox2.Size = new System.Drawing.Size(269, 132);
-            this.picBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox2.TabIndex = 23;
-            this.picBox2.TabStop = false;
-            this.picBox2.Click += new System.EventHandler(this.picBox2_Click);
-            // 
-            // picBox1
-            // 
-            this.picBox1.BackColor = System.Drawing.Color.Transparent;
-            this.picBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picBox1.Location = new System.Drawing.Point(461, 158);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(269, 132);
-            this.picBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox1.TabIndex = 22;
-            this.picBox1.TabStop = false;
-            this.picBox1.Click += new System.EventHandler(this.picBox1_Click);
+            this.picBox4.BackColor = System.Drawing.Color.Transparent;
+            this.picBox4.Location = new System.Drawing.Point(437, 116);
+            this.picBox4.Name = "picBox4";
+            this.picBox4.Size = new System.Drawing.Size(325, 265);
+            this.picBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox4.TabIndex = 38;
+            this.picBox4.TabStop = false;
             // 
             // Form1
             // 
@@ -594,11 +607,12 @@ namespace trickyTest2021
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
-            this.pauseMenu.ResumeLayout(false);
-            this.pauseMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
+            this.pauseMenu.ResumeLayout(false);
+            this.pauseMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,6 +663,7 @@ namespace trickyTest2021
         private System.Windows.Forms.Label picBox3Lbl;
         private System.Windows.Forms.Label picBox2Lbl;
         private System.Windows.Forms.Label picBox1Lbl;
+        private System.Windows.Forms.PictureBox picBox4;
     }
 }
 
