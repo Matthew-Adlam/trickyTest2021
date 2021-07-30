@@ -92,7 +92,7 @@ namespace trickyTest2021
             string question = "Do you want to exit this game?"; // make a string
             string title = "Exit Program"; // make another string
             MessageBoxButtons buttons = MessageBoxButtons.YesNo; // declare messagebox buttons as yes/no
-            DialogResult result = MessageBox.Show(question, title, buttons); // show the result with the buttons, the title and the question
+            DialogResult result = MessageBox.Show(question, title, buttons, MessageBoxIcon.Question); // show the result with the buttons, the title and the question
             if (result == DialogResult.Yes) // if user types yes, exit the application
             {
                 Application.Exit();
@@ -435,7 +435,7 @@ namespace trickyTest2021
             string question = "Do you want to exit this game?";
             string title = "Exit Game";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(question, title, buttons);
+            DialogResult result = MessageBox.Show(question, title, buttons, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 highScoreScreen = false;
