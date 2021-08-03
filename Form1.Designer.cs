@@ -31,6 +31,7 @@ namespace trickyTest2021
         {
             this.components = new System.ComponentModel.Container();
             this.panelGame = new System.Windows.Forms.Panel();
+            this.picBox4 = new System.Windows.Forms.PictureBox();
             this.picBox3Lbl = new System.Windows.Forms.Label();
             this.picBox2Lbl = new System.Windows.Forms.Label();
             this.picBox1Lbl = new System.Windows.Forms.Label();
@@ -73,13 +74,12 @@ namespace trickyTest2021
             this.hintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picBox4 = new System.Windows.Forms.PictureBox();
             this.panelGame.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.pauseMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGame
@@ -129,6 +129,16 @@ namespace trickyTest2021
             this.panelGame.TabIndex = 0;
             this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
             this.panelGame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelGame_MouseMove);
+            // 
+            // picBox4
+            // 
+            this.picBox4.BackColor = System.Drawing.Color.Transparent;
+            this.picBox4.Location = new System.Drawing.Point(437, 116);
+            this.picBox4.Name = "picBox4";
+            this.picBox4.Size = new System.Drawing.Size(325, 265);
+            this.picBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox4.TabIndex = 38;
+            this.picBox4.TabStop = false;
             // 
             // picBox3Lbl
             // 
@@ -478,7 +488,7 @@ namespace trickyTest2021
             this.homeLbl.AutoSize = true;
             this.homeLbl.BackColor = System.Drawing.Color.Transparent;
             this.homeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeLbl.Location = new System.Drawing.Point(433, 19);
+            this.homeLbl.Location = new System.Drawing.Point(433, 2);
             this.homeLbl.Name = "homeLbl";
             this.homeLbl.Size = new System.Drawing.Size(324, 69);
             this.homeLbl.TabIndex = 4;
@@ -584,16 +594,6 @@ namespace trickyTest2021
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
             // 
-            // picBox4
-            // 
-            this.picBox4.BackColor = System.Drawing.Color.Transparent;
-            this.picBox4.Location = new System.Drawing.Point(437, 116);
-            this.picBox4.Name = "picBox4";
-            this.picBox4.Size = new System.Drawing.Size(325, 265);
-            this.picBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox4.TabIndex = 38;
-            this.picBox4.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -607,12 +607,12 @@ namespace trickyTest2021
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelGame.ResumeLayout(false);
             this.panelGame.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.pauseMenu.ResumeLayout(false);
             this.pauseMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -185,7 +185,7 @@ namespace trickyTest2021
             highScoresBtn.Visible = false;
             usernameInput.Visible = false;
             startGame.Visible = false;
-            homeLbl.Text = "Select a difficulty:";
+            homeLbl.Text = "Select a \n difficulty:";
             easyBtn.Visible = true;
             mediumBtn.Visible = true;
             hardBtn.Visible = true;
@@ -231,7 +231,7 @@ namespace trickyTest2021
             startGame.Visible = true;
             difficultyScreen = false;
             nameScreen = true;
-            homeLbl.Text = "What is your username?";
+            homeLbl.Text = "What is your \n username?";
         }
 
         /// <summary>
@@ -422,6 +422,11 @@ namespace trickyTest2021
             else if(level == 8)
             {
                 level8();
+            }
+            else if(level == 9)
+            {
+                MessageBox.Show("Count the number of blue squares. You have a few seconds.");
+                level9();
             }
         }
 
@@ -657,6 +662,19 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
+            else if (level == 9)
+            {
+                if (textBox1.Text == blueSquares.ToString())
+                {
+                    MessageBox.Show("You have a good memory. Nice!");
+                    endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong.");
+                    checkLives();
+                }
+            }
         }
 
         /// <summary>
@@ -879,6 +897,28 @@ namespace trickyTest2021
             scoreTimer.Interval = 24; // super fast
             scoreTimer.Enabled = true;
             picBox4.BackgroundImage = Properties.Resources.shirt;
+        }
+
+        public void level9()
+        { 
+            picBox4.Visible = false;
+            instructLbl.Text = "";
+            livesLbl.Visible = false;
+            livesText.Visible = false;
+            scoreLbl.Visible = false;
+            scoreText.Visible = false;
+            levelLabel.Visible = false;
+            levelText.Visible = false;
+            hintsText.Visible = false;
+            hintsLbl.Visible = false;
+
+            Thread.Sleep(400); // pause the screen for 400ms
+
+            submitBtn.Visible = false;
+            textBox1.Text = "";
+            textBox1.Visible = false;
+            findXLbl.Visible = false;
+            drawShapes(); // call drawBalls method in the drawBalls.cs class
         }
     }
 }

@@ -37,6 +37,10 @@ namespace trickyTest2021
                 actualClickBtnClicked = 25;
                 clickyBtn.Text = clickBtnClicked.ToString();
             }
+            else if(level == 9)
+            {
+                drawShapes();
+            }
         }
 
 
