@@ -133,7 +133,7 @@ namespace trickyTest2021
             // picBox4
             // 
             this.picBox4.BackColor = System.Drawing.Color.Transparent;
-            this.picBox4.Location = new System.Drawing.Point(437, 116);
+            this.picBox4.Location = new System.Drawing.Point(432, 130);
             this.picBox4.Name = "picBox4";
             this.picBox4.Size = new System.Drawing.Size(325, 265);
             this.picBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -439,7 +439,7 @@ namespace trickyTest2021
             // 
             this.backBtn.BackColor = System.Drawing.Color.White;
             this.backBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.Location = new System.Drawing.Point(461, 518);
+            this.backBtn.Location = new System.Drawing.Point(461, 558);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(269, 106);
             this.backBtn.TabIndex = 8;
@@ -451,7 +451,7 @@ namespace trickyTest2021
             // 
             this.hardBtn.BackColor = System.Drawing.Color.Red;
             this.hardBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hardBtn.Location = new System.Drawing.Point(461, 387);
+            this.hardBtn.Location = new System.Drawing.Point(461, 437);
             this.hardBtn.Name = "hardBtn";
             this.hardBtn.Size = new System.Drawing.Size(269, 106);
             this.hardBtn.TabIndex = 7;
@@ -463,7 +463,7 @@ namespace trickyTest2021
             // 
             this.mediumBtn.BackColor = System.Drawing.Color.Lime;
             this.mediumBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mediumBtn.Location = new System.Drawing.Point(461, 251);
+            this.mediumBtn.Location = new System.Drawing.Point(461, 316);
             this.mediumBtn.Name = "mediumBtn";
             this.mediumBtn.Size = new System.Drawing.Size(269, 106);
             this.mediumBtn.TabIndex = 6;
@@ -475,7 +475,7 @@ namespace trickyTest2021
             // 
             this.easyBtn.BackColor = System.Drawing.Color.Yellow;
             this.easyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.easyBtn.Location = new System.Drawing.Point(461, 113);
+            this.easyBtn.Location = new System.Drawing.Point(461, 189);
             this.easyBtn.Name = "easyBtn";
             this.easyBtn.Size = new System.Drawing.Size(269, 106);
             this.easyBtn.TabIndex = 5;
