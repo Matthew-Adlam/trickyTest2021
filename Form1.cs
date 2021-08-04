@@ -722,7 +722,7 @@ namespace trickyTest2021
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
-                else if (level == 5 || level == 6 || level == 8) // doesnt take hints away, as hints are kind of useless or spoil these levels
+                else if (level == 5 || level == 6 || level == 8 || level == 9) // doesnt take hints away, as hints are kind of useless or spoil these levels
                 {
                     MessageBox.Show("No hint allowed for this level.");
                 }

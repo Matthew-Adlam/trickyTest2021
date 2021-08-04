@@ -44,28 +44,28 @@ namespace trickyTest2021
 
             const int OBJECT_WIDTH = 50;
             const int GAP_SIZE = 10;
-
+            // declares rows and columns to fit inside the panel, but with the maximum possible
             int rows = panelGame.Height / (OBJECT_WIDTH + GAP_SIZE);
             int columns = (panelGame.Width / (OBJECT_WIDTH + GAP_SIZE));
 
-            blueSquares = 0;
+            blueSquares = 0; // set blue squares to 0
 
-            Graphics paper = panelGame.CreateGraphics();
+            Graphics paper = panelGame.CreateGraphics(); // create graphics
 
-            Random rand = new Random();
-            int shapeNum = 0;
+            Random rand = new Random(); // declares a random
+            int shapeNum = 0; // variable to store the random
 
 
-            while (counter <= rows)
+            while (counter <= rows) // while the counter has not exceeded the number of rows
             {
-                while (ycounter <= columns)
+                while (ycounter <= columns)// while the counter has not exceeded the number of columns
                 {
-                    Pen pen1 = new Pen(Color.Red, 2); 
-                    SolidBrush br = new SolidBrush(Color.Red);
+                    Pen pen1 = new Pen(Color.Red, 2); // makes a pen
+                    SolidBrush br = new SolidBrush(Color.Red); // makes a brush
 
-                    shapeNum = rand.Next(1, 9);
+                    shapeNum = rand.Next(1, 9); // sets the random to between 1 and 8
 
-                    if (shapeNum == 1)
+                    if (shapeNum == 1) // if random variable generates 1, change colour to blue and draw ellipses, and add one to counter
                     {
                         pen1.Color = Color.Blue;
                         br.Color = Color.Blue;
@@ -74,7 +74,7 @@ namespace trickyTest2021
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter
                     }
-                    else if(shapeNum == 2)
+                    else if(shapeNum == 2) // if random variable generates 2, change colour to blue and draw rectangles, and add one to counter
                     {
                         pen1.Color = Color.Blue;
                         br.Color = Color.Blue;
@@ -82,9 +82,9 @@ namespace trickyTest2021
                         paper.DrawRectangle(pen1, x, y, OBJECT_WIDTH, OBJECT_WIDTH);
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter
-                        blueSquares++;
+                        blueSquares++; // add one to blue squares
                     }
-                    else if (shapeNum == 3)
+                    else if (shapeNum == 3) // if random variable generates 3, change colour to red and draw ellipses, and add one to counter
                     {
                         pen1.Color = Color.Red;
                         br.Color = Color.Red;
@@ -93,7 +93,7 @@ namespace trickyTest2021
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter
                     }
-                    else if (shapeNum == 4)
+                    else if (shapeNum == 4) // if random variable generates 4, change colour to red and draw rectangles, and add one to counter
                     {
                         pen1.Color = Color.Red;
                         br.Color = Color.Red;
@@ -102,7 +102,7 @@ namespace trickyTest2021
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter
                     }
-                    else if (shapeNum == 5)
+                    else if (shapeNum == 5) // if random variable generates 5, change colour to green and draw ellipses, and add one to counter
                     {
                         pen1.Color = Color.Green;
                         br.Color = Color.Green;
@@ -111,7 +111,7 @@ namespace trickyTest2021
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter               
                     }
-                    else if (shapeNum == 6)
+                    else if (shapeNum == 6) // if random variable generates 6, change colour to green and draw rectangles, and add one to counter
                     {
                         pen1.Color = Color.Green;
                         br.Color = Color.Green;
@@ -120,7 +120,7 @@ namespace trickyTest2021
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter
                     }
-                    else if (shapeNum == 7)
+                    else if (shapeNum == 7) // if random variable generates 7, change colour to purple and draw ellipses, and add one to counter
                     {
                         pen1.Color = Color.Purple;
                         br.Color = Color.Purple;
@@ -129,7 +129,7 @@ namespace trickyTest2021
                         x += OBJECT_WIDTH + GAP_SIZE; // increases the x by one ball width and gap width
                         ycounter++; // add one to ycounter               
                     }
-                    else if (shapeNum == 8)
+                    else if (shapeNum == 8) // if random variable generates 8, change colour to purple and draw rectangles, and add one to counter
                     {
                         pen1.Color = Color.Purple;
                         br.Color = Color.Purple;
