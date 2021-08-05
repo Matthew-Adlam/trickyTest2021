@@ -912,6 +912,8 @@ namespace trickyTest2021
             hintsText.Visible = false;
             hintsLbl.Visible = false;
 
+            scoreTimer.Interval = 20;
+
             Thread.Sleep(400); // pause the screen for 400ms
 
             submitBtn.Visible = false;
