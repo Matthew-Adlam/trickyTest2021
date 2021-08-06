@@ -24,6 +24,7 @@ namespace trickyTest2021
         {
             // makes certain elements not visible so the circles are shown clearly
             scoreTimer.Enabled = false;
+            instructLbl.Text = "";
             submitBtn.Visible = false;
             textBox1.Visible = false;
 

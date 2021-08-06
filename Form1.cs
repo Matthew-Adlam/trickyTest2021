@@ -31,9 +31,10 @@ namespace trickyTest2021
         public bool easy = false;
         public bool medium = false;
         public bool hard = false;
-        // current level, and hints
+        // current level, bypasses and hints
         public int level = 0;
         public int hints = 3;
+        public int bypasses = 0;
         // users name
         public string username = "";
         // score, lives and the score gained per level(runs off timer)
@@ -242,6 +243,7 @@ namespace trickyTest2021
             MessageBox.Show("Difficulty set to Easy"); // display message to user
             lives = 5; // set lives to 5 because its easy
             hints = 3; // give user 3 hints
+            bypasses = 1; // give only easy difficulty a free bypass
             difficultyBtnPressed(); // call above method
             // set easy to true and others to false
             easy = true;
@@ -428,6 +430,10 @@ namespace trickyTest2021
                 MessageBox.Show("Count the number of blue squares. You have a few seconds.");
                 level9();
             }
+            else if(level == 10)
+            {
+                level10();
+            }
         }
 
         /// <summary>
@@ -461,7 +467,7 @@ namespace trickyTest2021
             MessageBox.Show("Welcome to Tricky Test. This game will challenge all aspects of your thinking, strategy and skill.");
             MessageBox.Show("Some of the levels require lateral thinking, and thinking outside the box. \n Note: The obvious answer might not be the correct one. \n Watch out for this in level 1. \n The levels get longer as they go. Be ready.");
             MessageBox.Show("Click the High Scores button to display high scores, or click Start Game to play. \n Note: Your score is determined by how many levels you complete and how fast you complete them.");
-            MessageBox.Show("Click the ingame menu to access hints, pause the game or exit. \n Number of hints will be determined based on difficulty. \n Feel free to post an issue in the repository if you think the hints make it too easy or are not good enough, or if you have any other suggestions/feedback regarding this.");
+            MessageBox.Show("Click the ingame menu to access hints, bypass a level(only on easy), pause the game or exit. \n Number of hints will be determined based on difficulty. \n Feel free to post an issue in the repository if you think the hints make it too easy or are not good enough, or if you have any other suggestions/feedback regarding this.");
         }
 
         /// <summary>
@@ -624,7 +630,7 @@ namespace trickyTest2021
             // if it matches the correct amount of pink balls
             else if (level == 5)
             {
-                if(textBox1.Text == pinkBalls.ToString())
+                if (textBox1.Text == pinkBalls.ToString())
                 {
                     MessageBox.Show("You have a good memory. Nice!");
                     endLevel();
@@ -636,9 +642,9 @@ namespace trickyTest2021
                 }
             }
             // if the user has actually clicked on the button 25 times, regardless of what the button displays
-            else if(level == 6)
+            else if (level == 6)
             {
-                if(actualClickBtnClicked == 0)
+                if (actualClickBtnClicked == 0)
                 {
                     MessageBox.Show("I didn't fool you? Great work!");
                     endLevel();
@@ -649,9 +655,9 @@ namespace trickyTest2021
                     checkLives();
                 }
             }
-            else if(level == 8)
+            else if (level == 8)
             {
-                if(textBox1.Text == "6")
+                if (textBox1.Text == "6")
                 {
                     MessageBox.Show("Well done! Two sleves, the neck hole, the bottom, and TWO in the center hole.");
                     endLevel();
@@ -668,6 +674,18 @@ namespace trickyTest2021
                 {
                     MessageBox.Show("You have a good memory. Nice!");
                     endLevel();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, that is wrong.");
+                    checkLives();
+                }
+            }
+            else if(level == 10)
+            {
+                if(textBox1.Text == "the title of this level")
+                {
+                    level10Beaten();
                 }
                 else
                 {
@@ -729,6 +747,12 @@ namespace trickyTest2021
                 else if(level == 7)
                 {
                     MessageBox.Show("Try the first statement being true, and seeing if that works.");
+                    hints--;
+                    hintsLbl.Text = hints.ToString();
+                }
+                else if(level == 10)
+                {
+                    MessageBox.Show("It is case sensitive.");
                     hints--;
                     hintsLbl.Text = hints.ToString();
                 }
@@ -899,10 +923,13 @@ namespace trickyTest2021
             picBox4.BackgroundImage = Properties.Resources.shirt;
         }
 
+        /// <summary>
+        /// the base code necessary to start level 9
+        /// </summary>
         public void level9()
         { 
             picBox4.Visible = false;
-            instructLbl.Text = "";
+            instructLbl.Text = ""; // set to null to clear text box
             livesLbl.Visible = false;
             livesText.Visible = false;
             scoreLbl.Visible = false;
@@ -912,7 +939,7 @@ namespace trickyTest2021
             hintsText.Visible = false;
             hintsLbl.Visible = false;
 
-            scoreTimer.Interval = 20;
+            scoreTimer.Interval = 20; // even faster interval
 
             Thread.Sleep(400); // pause the screen for 400ms
 
@@ -921,6 +948,36 @@ namespace trickyTest2021
             textBox1.Visible = false;
             findXLbl.Visible = false;
             drawShapes(); // call drawBalls method in the drawBalls.cs class
+        }
+
+        /// <summary>
+        /// the base code necessary to start level 10
+        /// </summary>
+        public void level10()
+        {
+            textBox1.Visible = true;
+            textBox1.Text = "";
+            submitBtn.Visible = true;
+            instructLbl.Text = "Enter the title of this level to continue";
+            scoreTimer.Interval = 18; // super fast interval
+        }
+
+        /// <summary>
+        /// the bypass level 
+        /// </summary>
+        private void bypassLevelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(bypasses == 1)
+            {
+                MessageBox.Show("Used the bypass. You have no bypasses remaining.");
+                bypasses--; // decrease the amount of bypasses the player gets to 0
+                scoreTime = 0; // give the user no points for this level
+                endLevel();
+            }
+            else
+            {
+                MessageBox.Show("You have no bypasses left. Bypasses are only avaliable on Easy.");
+            }
         }
     }
 }

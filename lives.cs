@@ -37,7 +37,7 @@ namespace trickyTest2021
                 actualClickBtnClicked = 25;
                 clickyBtn.Text = clickBtnClicked.ToString();
             }
-            else if(level == 9)
+            else if(level == 9) // if they lose a life on level 5, call the drawShapes method so the user can try again
             {
                 drawShapes();
             }
@@ -49,8 +49,16 @@ namespace trickyTest2021
         /// </summary>
         public void endGameScreen()
         {
-            MessageBox.Show("Sorry, you have run out of lives."); // give user a message
-            updateHighScores(score, username); // update the high scores
+            MessageBox.Show("Sorry, you have run out of lives. \n Try again for a higher score! \n Check the high score board to see if you made it!"); // give user a message
+            homeScreen(); // call the homeScreen method, which displays the starting screen again
+        }
+
+        /// <summary>
+        /// when the user beats the final level
+        /// </summary>
+        public void level10Beaten()
+        {
+            MessageBox.Show("Congratulations! You have completed the final level of Tricky Test! \n You are really smart, and you should be proud of yourself! \n Check the high score board to see if you made it!");
             homeScreen(); // call the homeScreen method, which displays the starting screen again
         }
     }

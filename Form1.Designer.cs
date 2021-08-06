@@ -74,6 +74,7 @@ namespace trickyTest2021
             this.hintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bypassLevelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox3)).BeginInit();
@@ -227,7 +228,7 @@ namespace trickyTest2021
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(397, 387);
+            this.textBox1.Location = new System.Drawing.Point(392, 428);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(416, 45);
             this.textBox1.TabIndex = 29;
@@ -563,6 +564,7 @@ namespace trickyTest2021
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hintToolStripMenuItem,
+            this.bypassLevelToolStripMenuItem,
             this.pauseGameToolStripMenuItem,
             this.exitGameToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
@@ -574,7 +576,7 @@ namespace trickyTest2021
             // 
             this.hintToolStripMenuItem.Name = "hintToolStripMenuItem";
             this.hintToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.hintToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.hintToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.hintToolStripMenuItem.Text = "Hint";
             this.hintToolStripMenuItem.Click += new System.EventHandler(this.hintToolStripMenuItem_Click);
             // 
@@ -582,7 +584,7 @@ namespace trickyTest2021
             // 
             this.pauseGameToolStripMenuItem.Name = "pauseGameToolStripMenuItem";
             this.pauseGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.pauseGameToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.pauseGameToolStripMenuItem.Text = "Pause Game";
             this.pauseGameToolStripMenuItem.Click += new System.EventHandler(this.pauseGameToolStripMenuItem_Click);
             // 
@@ -590,9 +592,17 @@ namespace trickyTest2021
             // 
             this.exitGameToolStripMenuItem.Name = "exitGameToolStripMenuItem";
             this.exitGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.exitGameToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
             this.exitGameToolStripMenuItem.Text = "Exit Game";
             this.exitGameToolStripMenuItem.Click += new System.EventHandler(this.exitGameToolStripMenuItem_Click_1);
+            // 
+            // bypassLevelToolStripMenuItem
+            // 
+            this.bypassLevelToolStripMenuItem.Name = "bypassLevelToolStripMenuItem";
+            this.bypassLevelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.bypassLevelToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
+            this.bypassLevelToolStripMenuItem.Text = "Bypass Level";
+            this.bypassLevelToolStripMenuItem.Click += new System.EventHandler(this.bypassLevelToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -664,6 +674,7 @@ namespace trickyTest2021
         private System.Windows.Forms.Label picBox2Lbl;
         private System.Windows.Forms.Label picBox1Lbl;
         private System.Windows.Forms.PictureBox picBox4;
+        private System.Windows.Forms.ToolStripMenuItem bypassLevelToolStripMenuItem;
     }
 }
 
