@@ -918,7 +918,18 @@ namespace trickyTest2021
             textBox1.Text = "";
             instructLbl.Visible = true;
             instructLbl.Text = "How many holes in this shirt?";
-            scoreTimer.Interval = 24; // super fast
+            if(easy == true)
+            {
+                scoreTimer.Interval = 24; // super fast
+            }
+            else if(medium == true)
+            {
+                scoreTimer.Interval = 21; // make it harder on medium
+            }
+            else if(hard == true)
+            {
+                scoreTimer.Interval = 18; // make it harder on hard
+            }
             scoreTimer.Enabled = true;
             picBox4.BackgroundImage = Properties.Resources.shirt;
         }
@@ -959,7 +970,18 @@ namespace trickyTest2021
             textBox1.Text = "";
             submitBtn.Visible = true;
             instructLbl.Text = "Enter the title of this level to continue";
-            scoreTimer.Interval = 18; // super fast interval
+            if (easy == true)
+            {
+                scoreTimer.Interval = 18;
+            }
+            else if (medium == true)
+            {
+                scoreTimer.Interval = 16;
+            }
+            else if(hard == true)
+            {
+                scoreTimer.Interval = 14;
+            }
         }
 
         /// <summary>
